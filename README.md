@@ -13,6 +13,8 @@ Se no Windows:
 - Baixar projeto
 -
 
+- Executar o projeto localmente
+- python manage.py runserver
 
  Ativando o virtual env
 
