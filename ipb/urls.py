@@ -20,9 +20,12 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.http import HttpResponse
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nomes/', include('namelist.urls')),
+    path('', lambda request: HttpResponse('the cow jumped over the moon')),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)

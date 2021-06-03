@@ -30,7 +30,7 @@ Ao executar o projeto a primeira vez:
     Por padrão, sempre uso usuário `admin` e senha `123mudar`
 
     ``` shell
-    > python3 manage.py createsuperuser
+    > python manage.py createsuperuser
     ```
 
 ## Alterando projeto

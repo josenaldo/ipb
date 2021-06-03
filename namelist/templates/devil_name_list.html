@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Lista de nomes do capeta</h1>
+{% if names %}
+<ul>
+    {% for devil_name in names %}
+    <li>
+        <a href="{{ devil_name.get_absolute_url }}">{{ devil_name.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Nenhum nome foi invocado.</p>
+{% endif %}
+{% endblock %}
