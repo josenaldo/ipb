@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Nome do Capeta: {{ devil_name.name }}</h1>
+
+  <p><strong>Criado em:</strong> {{ devil_name.creation_date }}</a>
+
+  <a href="{% url 'devil_name_list' %}">Voltar</a>
+  
+{% endblock %}

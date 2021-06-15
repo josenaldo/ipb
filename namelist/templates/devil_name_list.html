@@ -2,9 +2,9 @@
 
 {% block content %}
 <h1>Lista de nomes do capeta</h1>
-{% if names %}
+{% if devil_name_list %}
 <ul>
-    {% for devil_name in names %}
+    {% for devil_name in devil_name_list %}
     <li>
         <a href="{{ devil_name.get_absolute_url }}">{{ devil_name.name }}</a>
     </li>
