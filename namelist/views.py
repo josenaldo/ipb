@@ -26,10 +26,13 @@ class DevilNameListView(generic.ListView):
     context_object_name ='devil_name_list'
 
     # Get 5 books containing the title war
-    queryset = DevilName.objects.order_by('-creation_date')[:5]
+    #queryset = DevilName.objects.order_by('-creation_date')[:5]
 
-    # Specify your own template name/location
+    # Especifica a localização do template, a partir da pasta templates
     template_name = 'devil_name_list.html'
+
+    # especifica o número máximo de itens que deve aparecer na lista
+    paginate_by = 5
 
     # Override get_context_data() in order to pass additional
     # context variables to the template
