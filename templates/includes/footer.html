@@ -37,49 +37,49 @@
 				<p class="social-title">Social Media</p>
 				<div class="social">
 					<ul>
-						{% if settings.SOCIAL.twitter_username %}
+						{% if SOCIAL.twitter_username %}
 							<li>
-								<a href="https://www.twitter.com/{{ settings.SOCIAL.twitter_username }}" target="_new">
+								<a href="https://www.twitter.com/{{ SOCIAL.twitter_username }}" target="_new">
 									<i class="fab fa-twitter"></i>
 								</a>
 							</li>
 						{% endif %}
-					
-						{% if settings.SOCIAL.linkedin_link %}
+
+						{% if SOCIAL.linkedin_link %}
 							<li>
-								<a href="{{ settings.SOCIAL.linkedin_link }}" target="_new" >
+								<a href="{{ SOCIAL.linkedin_link }}" target="_new" >
 									<i class="fab fa-linkedin"></i>
 								</a>
 							</li>
 						{% endif %}
 										
-						{% if settings.SOCIAL.facebook_link %}
+						{% if SOCIAL.facebook_link %}
 							<li>
-								<a href="{{ settings.SOCIAL.facebook_link }}" target="_new">
+								<a href="{{ SOCIAL.facebook_link }}" target="_new">
 									<i class="fab fa-facebook"></i>
 								</a>
 							</li>
 						{% endif %}
 					
-						{% if settings.SOCIAL.github_username %}
+						{% if SOCIAL.github_username %}
 							<li>
-								<a href="https://github.com/{{ settings.SOCIAL.github_username }}" target="_new">
+								<a href="https://github.com/{{ SOCIAL.github_username }}" target="_new">
 									<i class="fab fa-github-alt"></i>
 								</a>
 							</li>
 						{% endif %}
 														
-						{% if settings.SOCIAL.instagram_username %}
+						{% if SOCIAL.instagram_username %}
 							<li>
-								<a href="https://www.instagram.com/{{ settings.SOCIAL.instagram_username }}" target="_new">
+								<a href="https://www.instagram.com/{{ SOCIAL.instagram_username }}" target="_new">
 									<i class="fab fa-instagram"></i>
 								</a>
 							</li>
 						{% endif %}
 					
-						{% if settings.SOCIAL.reddit_username %}
+						{% if SOCIAL.reddit_username %}
 							<li>
-								<a href="https://www.reddit.com/u/{{ settings.SOCIAL.reddit_username }}" target="_new">
+								<a href="https://www.reddit.com/u/{{ SOCIAL.reddit_username }}" target="_new">
 									<i class="fab fa-reddit-alien"></i>
 								</a>
 							</li>
