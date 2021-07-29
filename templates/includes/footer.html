@@ -1,0 +1,98 @@
+<footer class="page-footer bg-primary text-white-50" id="sticky-footer">
+	{% load static %}
+    <div class="container">
+        <div class="row">
+			<div class="col-sm">
+				<p class="social-title">Encontre esse projeto no Github</p>
+				<div class="social">
+					<ul>
+						<li>
+							<a href="https://github.com/josenaldo/invoca-piroto/" target="_new">
+								<i class="fab fa-github  fa-6x"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-sm">
+				<p class="social-title">Patrocine esse projeto</p>
+				<div class="social-link">
+					<p>
+						<a href="https://picpay.me/josenaldo" target="_new">
+							https://picpay.me/josenaldo
+						</a>
+					</p>
+					<p>
+						<a href="https://picpay.me/josenaldo" target="_new">
+							<img src="{% static 'images/qrcode-200.png'%}"
+							alt="Doe para PicPay @Josenaldo" class="social-link">
+						</a>
+					</p>
+
+				</div>
+			</div>
+
+			<div class="col-sm">
+				<p class="social-title">Social Media</p>
+				<div class="social">
+					<ul>
+						{% if settings.SOCIAL.twitter_username %}
+							<li>
+								<a href="https://www.twitter.com/{{ settings.SOCIAL.twitter_username }}" target="_new">
+									<i class="fab fa-twitter"></i>
+								</a>
+							</li>
+						{% endif %}
+					
+						{% if settings.SOCIAL.linkedin_link %}
+							<li>
+								<a href="{{ settings.SOCIAL.linkedin_link }}" target="_new" >
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</li>
+						{% endif %}
+										
+						{% if settings.SOCIAL.facebook_link %}
+							<li>
+								<a href="{{ settings.SOCIAL.facebook_link }}" target="_new">
+									<i class="fab fa-facebook"></i>
+								</a>
+							</li>
+						{% endif %}
+					
+						{% if settings.SOCIAL.github_username %}
+							<li>
+								<a href="https://github.com/{{ settings.SOCIAL.github_username }}" target="_new">
+									<i class="fab fa-github-alt"></i>
+								</a>
+							</li>
+						{% endif %}
+														
+						{% if settings.SOCIAL.instagram_username %}
+							<li>
+								<a href="https://www.instagram.com/{{ settings.SOCIAL.instagram_username }}" target="_new">
+									<i class="fab fa-instagram"></i>
+								</a>
+							</li>
+						{% endif %}
+					
+						{% if settings.SOCIAL.reddit_username %}
+							<li>
+								<a href="https://www.reddit.com/u/{{ settings.SOCIAL.reddit_username }}" target="_new">
+									<i class="fab fa-reddit-alien"></i>
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+        </div>
+	</div>
+	<div class="footer-copyright">
+		<div class="container">
+			Copyright © 2020 Vudu Reverso Tudo nessa porra é reservado
+		</div>
+	  </div>
+    
+</footer>
