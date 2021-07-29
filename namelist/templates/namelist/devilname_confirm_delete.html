@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Remover Nome do Capeta</h1>
+
+<p>Tem certeza de que quer remover esse nome: {{ devil_name.name }}?</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Sim, remover.">
+</form>
+
+{% endblock %}

@@ -4,9 +4,13 @@
 
 {% block content %}
 <h1>Lista de nomes do capeta</h1>
-<p>Nossa lista tem <b>{{num_names}}</b> nomes!</p>
 
 <ul>
-    <li>Item</li>
+    {% for dn in devil_names %}
+    <li>{{dn.name}}</li>
+    {% endfor %}
 </ul>
+
+<p>Total <b>{{num_names}}</b> nomes!</p>
+
 {% endblock %}

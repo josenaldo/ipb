@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Adicionar nome do Capeta</h1>
+
+{%if message%}
+<p>{{message}}</p>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>{{form.as_table}}</table>
+    <input type="submit" value="Enviar">
+
+</form>
+{% endblock %}
