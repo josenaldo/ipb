@@ -24,8 +24,7 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('nomes/', include('namelist.urls')),
-    path('', lambda request: HttpResponse('the cow jumped over the moon')),
+    path('', include('namelist.urls')),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
