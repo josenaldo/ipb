@@ -137,9 +137,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assetsfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Redirect to home URL after login 
+# Redirect to home URL after login
 # (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/autenticacao/login/'
 
 # Isso registra todos os emails enviados ao console (para que você 
 # possa copiar o link de redefinição de senha do console).
