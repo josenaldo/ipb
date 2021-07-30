@@ -13,12 +13,8 @@ from namelist.forms import NewDevilNameForm
 # Create your views here.
 def index(request):
 
-    num_names = DevilName.objects.all().count()
-    devil_names = DevilName.objects.all()
-
     context = {
-        'num_names': num_names,
-        'devil_names': devil_names,
+
     }
 
     return render(request, 'index.html', context=context)

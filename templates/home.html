@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-{% include head.html %}
+{% include "includes/head.html" %}
 
 <body>
-  {% include navbar.html %}
+  {% include "includes/navbar.html" %}
 
   <nav aria-label="breadcrumb" class="home-breadcrumb breadcrumb-container">
     <div class="container">
@@ -16,17 +16,17 @@
     </div>
   </nav>
 
-  {% include banner.html %}
+  {% include "includes/banner.html" %}
 
   <main role="main">
-    {{ content }}
+    {% block content %}{% endblock %}
   </main>
 
-  {% include footer.html %}
+  {% include "includes/footer.html" %}
 
-  {% include scripts.html %}
+  {% include "includes/scripts.html" %}
 
-  {% include gtag.html %}
+  {% include "includes/gtag.html" %}
 </body>
 
 </html>
