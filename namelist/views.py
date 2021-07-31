@@ -1,14 +1,19 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
+
 from namelist.models import DevilName
 from namelist.forms import NewDevilNameForm
+from namelist.serializers import DevilNameSerializer
 
 # Create your views here.
 def index(request):
@@ -27,6 +32,13 @@ def invocacao(request):
 
     return render(request, 'invocacao.html', context=context)
 
+@api_view(['GET'])
+@permission_classes((permissions.AllowAny,))
+def random_name(request):
+    devil_name = DevilName.randoms.random()
+    serializer = DevilNameSerializer(devil_name)
+    return Response(serializer.data)
+
 def nomes(request):
     context = {
 
@@ -34,7 +46,10 @@ def nomes(request):
 
     return render(request, 'invocacao.html', context=context)
 
-# @permission_required('namelist.add_devilname', raise_exception=True)
+class DevilNameViewSet(viewsets.ModelViewSet):
+    queryset = DevilName.objects.all()
+    serializer_class = DevilNameSerializer
+
 class DevilNameCreate(PermissionRequiredMixin, CreateView):
     permission_required = 'namelist.add_devilname'
     model = DevilName

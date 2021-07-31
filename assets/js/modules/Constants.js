@@ -2,7 +2,7 @@ define("Constants",
     [],
     function () {
 
-    var BASEURL = "/invoca-piroto";
+    var BASEURL = "/";
 
     var AppConstants = {
         BASEURL: BASEURL,

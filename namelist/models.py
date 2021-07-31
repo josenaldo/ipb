@@ -1,8 +1,19 @@
 from django.db import models
 from django.db.models.fields import CharField, DateTimeField
 from django.urls import reverse
+from random import randint
+
+class DevilNameRandomManager(models.Manager):
+    def random(self):
+        count = self.aggregate(count=models.Count('id'))['count']
+        random_index = randint(0, count - 1)
+        return self.all()[random_index]
 
 class DevilName(models.Model):
+
+    #managers
+    randoms = DevilNameRandomManager() # The random-specific manager.
+    objects = models.Manager() # The default manager.
 
     # Fields
     id = models.AutoField(

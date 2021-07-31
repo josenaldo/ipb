@@ -2,16 +2,18 @@ define(
     ["jquery", "DevilNames", "popper", "bootstrap"],
     function ( $, DevilNames ) {
 
-        DevilNames.init(function (data) {
-            if(document.getElementById("devil-name")) {
-                var newName = DevilNames.getRandomName();
-                document.getElementById("devil-name").innerHTML = newName;
-            }
-        });
+        setRandomName = function(data){
+            document.getElementById("devil-name").innerHTML = data.name;
+        }
+
+        if(document.getElementById("devil-name")) {
+            DevilNames.getRandomName(setRandomName);
+        }
 
         $("#button-random-name").click(function () {
-            var newName = DevilNames.getRandomName();
-            document.getElementById("devil-name").innerHTML = newName;
+            DevilNames.getRandomName(setRandomName);
+            // document.getElementById("devil-name").innerHTML = newName;
         });
+
     }
 );
