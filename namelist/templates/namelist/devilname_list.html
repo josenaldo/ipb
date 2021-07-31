@@ -1,16 +1,56 @@
 {% extends "base_generic.html" %}
 
+{% block title %}Lista de nomes do capeta - Invoca Piroto{% endblock %}
+
 {% block content %}
-<h1>Lista de nomes do capeta</h1>
-{% if devil_name_list %}
-<ul>
-    {% for devil_name in devil_name_list %}
-    <li>
-        <a href="{{ devil_name.get_absolute_url }}">{{ devil_name.name }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>Nenhum nome foi invocado.</p>
-{% endif %}
+
+{% load static %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Lista de nomes do capeta</h1>
+    </div>
+
+    {% if devil_name_list %}
+    <div class="row justify-content-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data de Criação</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for devil_name in devil_name_list %}
+                <tr>
+                    <td>
+                        {{devil_name.id}}
+                    </td>
+                    <td class="text-break">
+                        <a href="{{ devil_name.get_absolute_url }}">{{ devil_name.name }}</a>
+                    </td>
+                    <td>
+                        {{devil_name.creation_date}}
+                    </td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+    <div class="row justify-content-center">
+        <div class="-col-md-auto">
+            <p>Nenhum nome foi invocado.</p>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+
+
 {% endblock %}
