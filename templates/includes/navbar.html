@@ -30,7 +30,7 @@
 
                     {% if user.is_authenticated %}
                         <li>
-                            <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">
+                            <a class="nav-link" href="{% url 'logout'%}">
                                 {{ user.get_username }} <i class="fas fa-sign-out-alt"></i>
                             </a>
                         </li>

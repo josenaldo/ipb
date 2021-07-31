@@ -1,6 +1,25 @@
 {% extends "base_generic.html" %}
 
+{% block title %}Você saiu - Invoca Piroto{% endblock %}
+
 {% block content %}
-  <p>Você saiu do inferno!</p>
-  <a href="{% url 'login'%}">Clique aqui para entrar novamente.</a>
+
+{% load static %}
+<div class="container">
+  <div class="row justify-content-center">
+    <h1>Atenção!</h1>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="alert alert-info" role="alert">
+      Você pediu pra sair. Agora, não reclama!
+    </div>
+
+
+  </div>
+  <div class="row justify-content-center mb-5">
+    <a class="btn btn-light" href="{% url 'login'%}">Quer voltar? Clica aqui pra fazer o login!</a>
+  </div>
+</div>
+
 {% endblock %}
