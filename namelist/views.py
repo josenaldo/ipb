@@ -19,24 +19,36 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+def invocacao(request):
+
+    context = {
+        'my_data_main': 'app-invocacao.js'
+    }
+
+    return render(request, 'invocacao.html', context=context)
+
+def nomes(request):
+    context = {
+
+    }
+
+    return render(request, 'invocacao.html', context=context)
+
 # @permission_required('namelist.add_devilname', raise_exception=True)
 class DevilNameCreate(PermissionRequiredMixin, CreateView):
     permission_required = 'namelist.add_devilname'
     model = DevilName
     fields = ['name']
 
-# @permission_required('namelist.change_devilname', raise_exception=True)
 class DevilNameUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'namelist.change_devilname'
     model = DevilName
     fields = ['name']
 
-# @permission_required('namelist.delete_devilname', raise_exception=True)
 class DevilNameDelete(PermissionRequiredMixin, DeleteView):
     permission_required = 'namelist.delete_devilname'
     model = DevilName
     success_url = reverse_lazy('devil_name_list')
-
 
 class DevilNameList(ListView):
     model = DevilName

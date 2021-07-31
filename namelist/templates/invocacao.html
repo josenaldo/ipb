@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Invocação de Nome do Capeta - Invoca Piroto{% endblock %}
+
+{% block data_main %}
+<script>
+var data_main = "app-invocacao.js"
+</script>
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm text-white">
+            <div class="speech-bubble text-center">
+                <h1 id="devil-name"><img src="{% static 'images/loading.gif' %}" alt="Loading"></h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm text-center">
+            <a id="button-random-name" class="btn-devil swing" href="#" role="button">
+            </a>
+            <p class="lead">Clique no capiroto para invocar um novo nome do capeta.</p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
