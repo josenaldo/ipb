@@ -1,37 +1,68 @@
 {% extends "base_generic.html" %}
 
+{% block title %} - Invoca Piroto{% endblock %}
+
 {% block content %}
 
-{% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+{% load static %}
+<div class="container">
 
-{% if next %}
-    {% if user.is_authenticated %}
-        <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-    {% else %}
-        <p>Please login to see this page.</p>
+    {% if form.errors %}
+        <div class="row justify-content-center">
+            <div class="alert alert-danger" role="alert">
+                Teu login e tua senha não estão corretos, abestado! Tentam de novo!
+            </div>
+        </div>
     {% endif %}
-{% endif %}
 
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-</form>
+    {% if next %}
+        <div class="row justify-content-center">
+             {% if user.is_authenticated %}
+                <div class="alert alert-warning" role="alert">
+                   Você não tem essa moral toda que você acha que tem. Se quiser
+                    acessar esse recurso, vai ter que acessar com outra conta.
+                </div>
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Esqueceu a senha?</a></p>
+            {% else %}
+                 <div class="alert alert-warning" role="alert">
+                   Você tem que entra no sistema pra ver essa página, né imundiçado?
+                </div>
+
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+
+
+            <div class="form-group">
+               {{ form.username.label_tag }}
+                <input class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" value="{{ form.username.value|default:''}}" type="text" />
+                {{ form.username.errors }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.username.label_tag }}
+                <input class="form-control" id="{{ form.password.id_for_label}}" name="{{ form.password.html_name }}" value="{{ form.password.value|default:''}}" type="password" />
+                {{ form.password.errors }}
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Entrar" class="btn btn-primary" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+
+            <div class="form-group">
+                <a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
+            </div>
+        </form>
+
+        {# Assumes you setup the password_reset view in your URLconf #}
+
+    </div>
+</div>
 
 {% endblock %}
