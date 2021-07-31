@@ -1,16 +1,47 @@
 {% extends "base_generic.html" %}
 
+{% block title %}Adicionar Nomes do Capeta - Invoca Piroto{% endblock %}
+
 {% block content %}
-<h1>Adicionar nome do Capeta</h1>
 
-{%if message%}
-<p>{{message}}</p>
-{% endif %}
+{% load static %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    <table>{{form.as_table}}</table>
-    <input type="submit" value="Enviar">
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Adicionar Nome do Capeta</h1>
+    </div>
 
-</form>
+    <div class="row justify-content-center">
+        {%if message%}
+        <p>{{message}}</p>
+        {% endif %}
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <div class="form-group col text-center">
+                    {{ form.name.label_tag }}
+                    <input class="form-control" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}"
+                        value="{{ form.name.value|default:''}}" type="text" />
+                    {{ form.name.errors }}
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+
+                <a href="{% url 'devil_name_list' %}" class="btn btn-light">Cancelar</a>
+            </div>
+
+        </form>
+        </div>
+    </div>
+
+</div>
+
 {% endblock %}

@@ -1,14 +1,37 @@
 {% extends "base_generic.html" %}
 
+{% block title %}Remover Nome do Capeta - Invoca Piroto{% endblock %}
+
 {% block content %}
 
-<h1>Remover Nome do Capeta</h1>
+{% load static %}
 
-<p>Tem certeza de que quer remover esse nome: {{ devil_name.name }}?</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Remover Nome do Capeta</h1>
+    </div>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Sim, remover.">
-</form>
+    <div class="row justify-content-center">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Atenção</h4>
+            <p>Tem certeza de que quer remover esse nome: {{ devil_name.name }}?</p>
+            <p class="mb-0"></p>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-danger" value="Sim, remover.">
+                    <a href="{% url 'devil_name_list' %}" class="btn btn-light">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}

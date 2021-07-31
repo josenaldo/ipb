@@ -1,10 +1,47 @@
 {% extends "base_generic.html" %}
 
+{% block title %}Ver Nomes do Capeta - Invoca Piroto{% endblock %}
+
 {% block content %}
-  <h1>Nome do Capeta: {{ devil_name.name }}</h1>
 
-  <p><strong>Criado em:</strong> {{ devil_name.creation_date }}</a>
+{% load static %}
 
-  <p><a href="{% url 'devil_name_list' %}">Voltar</a></p>
-  
+<div class="container">
+  <div class="row justify-content-center">
+    <h1>Ver Nome do Capeta</h1>
+  </div>
+
+  <div class="row justify-content-center">
+    {%if message%}
+    <p>{{message}}</p>
+    {% endif %}
+  </div>
+
+
+  <div class="row justify-content-center">
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <td> {{ devil_name.id }}</td>
+      </tr>
+      <tr>
+        <th>Nome</th>
+        <td>{{ devil_name.name }}</td>
+      </tr>
+      <tr>
+        <th>Data de Criação</th>
+        <td> {{ devil_name.creation_date }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row justify-content-center">
+      <div class="form-group">
+        <a href="{% url 'devil_name_delete' devil_name.id %}" class="btn btn-danger">Remover</a>
+        <a href="{% url 'devil_name_list'  %}" class="btn btn-light">Voltar</a>
+      </div>
+  </div>
+
+</div>
+
 {% endblock %}
