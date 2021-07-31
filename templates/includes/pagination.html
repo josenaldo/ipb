@@ -4,23 +4,38 @@
     <div class="row justify-content-center">
         <div class="-col-md-auto">
 
-            <div class="pagination">
-                <span class="page-links">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-lg">
                     {% if page_obj.has_previous %}
-                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Anterior</a>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">
+                            <i class="fas fa-chevron-circle-left"></i>
+                        </a>
+                    </li>
                     {% endif %}
-                    
-                    <span class="page-current">
-                        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-                    </span>
+
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
 
                     {% if page_obj.has_next %}
-                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Próximo</a>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">
+                            <i class="fas fa-chevron-circle-right"></i>
+                        </a>
+                    </li>
                     {% endif %}
-                </span>
-            </div>
-
+                </ul>
+            </nav>
         </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <span class="page-links">
+            <span class="page-current"><i class="fab fa-fw fa-chevron-circle-right"></i>
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+        </span>
     </div>
 </div>
 {% endif %}
