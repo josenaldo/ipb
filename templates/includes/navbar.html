@@ -24,10 +24,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Enforca Piroto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'devil_name_list'%}">Lista de Nomes</a>
-                    </li>
-    
+                    {% if perms.namelist.add_devilname %}
+                        <li><a class="nav-link" href="{% url 'devil_name_list'%}">Admin</a></li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <li><a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">{{ user.get_username }} <i class="fas fa-sign-out-alt"></i></a></li>
+                    {% else %}
+                        <li><a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login <i class="fas fa-sign-in-alt"></a></li>
+                    {% endif %}
+
+
+                    <li><a class="nav-link" href=""></a></li>
+
+
                 </ul>
             </div>
         </div>
