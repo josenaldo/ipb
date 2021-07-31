@@ -33,8 +33,12 @@
             </div>
 
             <div class="form-group text-center">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
 
+                {% if object.id %}
+                <a href="{% url 'devil_name_detail' object.id %}" class="btn btn-info">Visualizar</a>
+                {% endif %}
+
+                <input type="submit" value="Salvar" class="btn btn-primary" />
                 <a href="{% url 'devil_name_list' %}" class="btn btn-light">Cancelar</a>
             </div>
 

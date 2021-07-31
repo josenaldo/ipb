@@ -37,6 +37,7 @@
 
   <div class="row justify-content-center">
       <div class="form-group">
+        <a href="{% url 'devil_name_update' devil_name.id %}" class="btn btn-secondary">Editar</a>
         <a href="{% url 'devil_name_delete' devil_name.id %}" class="btn btn-danger">Remover</a>
         <a href="{% url 'devil_name_list'  %}" class="btn btn-light">Voltar</a>
       </div>
