@@ -9,19 +9,40 @@
                     {% if page_obj.has_previous %}
                     <li class="page-item">
                         <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">
-                            <i class="fas fa-chevron-circle-left"></i>
+                            <span>&laquo;</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="">
+                            <span>&laquo;</span>
                         </a>
                     </li>
                     {% endif %}
 
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    {% for i in page_obj.paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="page-item active">
+                                <a class="page-link" href="#">{{ i }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
 
                     {% if page_obj.has_next %}
                     <li class="page-item">
                         <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">
-                            <i class="fas fa-chevron-circle-right"></i>
+                            <span>&raquo;</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="">
+                            <span>&raquo;</span>
                         </a>
                     </li>
                     {% endif %}
