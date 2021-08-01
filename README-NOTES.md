@@ -13,6 +13,13 @@
 
 - https://getbootstrap.com/docs/4.6/getting-started/introduction/
 
-# Heroku
+## Heroku
 
 - https://devcenter.heroku.com/articles/getting-started-with-python?singlepage=true
+
+### Comandos úteis
+
+- heroku open --app invoca-piroto-backend
+-- Abre, no navegador, a aplicação rodando no heroku
+- heroku logs --tail --app invoca-piroto-backend
+-- Mostra os logs da aplicação
