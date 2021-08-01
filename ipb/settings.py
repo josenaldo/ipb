@@ -167,3 +167,7 @@ SOCIAL = {
     'facebook_link': 'https://www.facebook.com/josenaldo.matos',
     'email': 'josenaldo@gmail.com',
 }
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
