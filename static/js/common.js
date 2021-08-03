@@ -1,5 +1,5 @@
 requirejs.config({
-    baseUrl: "/assets/js/modules",
+    baseUrl: "/static/js/modules",
     paths: {
         "jquery": "//code.jquery.com/jquery-3.5.1.min",
         "popper": "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min",

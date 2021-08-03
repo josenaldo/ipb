@@ -68,3 +68,12 @@ Com o Heroku, no Linux:
 Os segunites links são funcionais, no aplicativo:
 
 - [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+
+
+
+python manage.py findstatic --verbosity 2 assets/js/modules/PageNomes.js
+
+
+Ver as configurações no terminal
+
+python manage.py diffsettings --all

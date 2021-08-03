@@ -12,7 +12,6 @@ define(
 
         $("#button-random-name").click(function () {
             DevilNames.getRandomName(setRandomName);
-            // document.getElementById("devil-name").innerHTML = newName;
         });
 
     }
