@@ -15,8 +15,8 @@ Ao executar o projeto a primeira vez:
 4. Criar e ativar ambiente virtual
 
      ```shell
-    > conda create --name ipb python=3.9.2
-    > conda activate ipb
+    > conda create  -p .venv python=3.9.2
+    > conda activate ./.venv
     ```
 
 5. Instalar Django
@@ -40,7 +40,7 @@ Cada vez que for testar o projeto:
 1. Ativar o ambiente virtual do conda
 
     ```shell
-    > conda activate ipb
+    > conda activate ./.venv
     ```
 
 2. Executar o projeto localmente
