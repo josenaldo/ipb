@@ -45,8 +45,22 @@ Cada vez que for testar o projeto:
 
 2. Executar o projeto localmente
 
+Com o Django:
+
     ```shell
     > python manage.py runserver
+    ```
+
+Com o Heroku, no Windows:
+
+    ```shell
+    > heroku local web -f Procfile.windows
+    ```
+
+Com o Heroku, no Linux:
+
+    ```shell
+    > heroku local web -f Procfile
     ```
 
 ## Links funcionais
