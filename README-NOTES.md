@@ -17,9 +17,3 @@
 
 - https://devcenter.heroku.com/articles/getting-started-with-python?singlepage=true
 
-### Comandos úteis
-
-- heroku open --app invoca-piroto-backend
--- Abre, no navegador, a aplicação rodando no heroku
-- heroku logs --tail --app invoca-piroto-backend
--- Mostra os logs da aplicação
