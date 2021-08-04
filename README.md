@@ -4,9 +4,13 @@
 
 O invoca Piroto é um [pet project](https://medium.com/@gabilapus1989/to-all-software-developers-do-have-a-pet-project-b7de8d51f244) que tenho para testar novas tecnologias que estou estudando. Nesta versão, vamos brincar com Django, no backend, e React, no frontend.
 
-## Status do projeto
+### Status do projeto
 
-Em desenvolvimento.
+Projeto em desenvolvimento. Provavelmente, estará assim pelo resto da vida dele. Ele é feito pra isso e serve enquanto eu estiver estudando. Mas, se vocês querem apenas invocar os nomes do Capeta, usem sem moderação.
+
+### Licença
+
+![License Badge](https://img.shields.io/github/license/josenaldo/ipb?style=for-the-badge)
 
 ## Funcionalidades
 
@@ -145,15 +149,29 @@ python manage.py diffsettings --all
 
 Neste projeto, utilizei as seguintes tecnologias:
 
-- [Python]()
-- [DJango]()
-- [Django Rest Framework]()
+- [Python]((https://www.python.org)
+- [DJango](https://www.djangoproject.com/)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
 
 ## Links funcionais
 
 Acessando as funcionalidades do aplicativo
 
-- [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+### Local
+
+- Qualquer usuário
+  - [Home](http://127.0.0.1:8000/)
+  - [Django Admin Site](http://127.0.0.1:8000/admin)
+  - [Incocação do Nome do Capeta](http://127.0.0.1:8000/invocacao)
+- Autenticados
+  - [Lista de Nomes do Capeta](http://127.0.0.1:8000/nomes/)
+  - [Detalhes do Nome do Capeta 1](http://127.0.0.1:8000/nomes/1)
+  - [Editar Nome do Capeta 1](http://127.0.0.1:8000/nomes/1/editar/)
+  - [Remover Nome do Capeta 1](http://127.0.0.1:8000/nomes/1/remover/)
+
+### Em produção
+
+-
 
 ## Autor
 
@@ -161,4 +179,4 @@ Acessando as funcionalidades do aplicativo
 
 Criado por [Josenaldo de Oliveira Matos Filho](https://hithub.com/josenaldo)
 
-Contatos: [![Twitter Badge](https://img.shields.io/badge/-@vudureverso-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/vudureverso)](https://twitter.com/vudureverso) [![Linkedin Badge](https://img.shields.io/badge/-Josenaldo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/josenaldo/)](https://www.linkedin.com/in/josenaldo/) [![Gmail Badge](https://img.shields.io/badge/-josenaldo@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:josenaldo@gmail.com)](mailto:josenaldo@gmail.com)
+Contatos: [![Twitter Badge](https://img.shields.io/badge/-@vudureverso-1ca0f1?style=for-the-badge&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/vudureverso)](https://twitter.com/vudureverso) [![Linkedin Badge](https://img.shields.io/badge/-Josenaldo-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/josenaldo/)](https://www.linkedin.com/in/josenaldo/) [![Gmail Badge](https://img.shields.io/badge/-josenaldo@gmail.com-c14438?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:josenaldo@gmail.com)](mailto:josenaldo@gmail.com)
