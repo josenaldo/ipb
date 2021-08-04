@@ -147,11 +147,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# Configure Django App for Heroku.
-
-django_heroku.settings(locals())
-
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -174,3 +169,5 @@ SOCIAL = {
     'email': 'josenaldo@gmail.com',
 }
 
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
