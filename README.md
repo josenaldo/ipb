@@ -141,10 +141,24 @@ python manage.py findstatic --verbosity 2 assets/js/modules/PageNomes.js
 python manage.py diffsettings --all
 ```
 
+## Tecnologias utilizadas
+
+Neste projeto, utilizei as seguintes tecnologias:
+
+- [Python]()
+- [DJango]()
+- [Django Rest Framework]()
+
 ## Links funcionais
 
 Acessando as funcionalidades do aplicativo
 
 - [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
-Ver as configurações no terminal
+## Autor
+
+[![Profile Pic](https://avatars.githubusercontent.com/u/359860?s=100&v=4)](https://hithub.com/josenaldo)
+
+Criado por [Josenaldo de Oliveira Matos Filho](https://hithub.com/josenaldo)
+
+Contatos: [![Twitter Badge](https://img.shields.io/badge/-@vudureverso-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/vudureverso)](https://twitter.com/vudureverso) [![Linkedin Badge](https://img.shields.io/badge/-Josenaldo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/josenaldo/)](https://www.linkedin.com/in/josenaldo/) [![Gmail Badge](https://img.shields.io/badge/-josenaldo@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:josenaldo@gmail.com)](mailto:josenaldo@gmail.com)
