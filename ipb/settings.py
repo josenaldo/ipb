@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import django_heroku
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,8 +31,11 @@ SECRET_KEY = 'eiq_ia&*t81^@lqn3pg+9%@9+a7++f&o=^u$g0o9vpc*$&@ytd'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost',
     '127.0.0.1',
     'invoca-piroto-backend.herokuapp.com',
+    'josenaldo.github.io',
 ]
 
 
@@ -85,13 +89,8 @@ WSGI_APPLICATION = 'ipb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(default='postgres://postgres:postgres@localhost/ipb')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

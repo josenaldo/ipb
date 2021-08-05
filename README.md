@@ -33,8 +33,9 @@ Projeto em desenvolvimento. Provavelmente, estará assim pelo resto da vida dele
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
 - [Git](https://git-scm.com).
-- [VSCode](https://code.visualstudio.com/) ou outro editor de código.
 - [Python 3.9.2](https://www.python.org/downloads/).
+- [PostgreSQL 13.3](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- [VSCode](https://code.visualstudio.com/) ou outro editor de código.
 - [Anaconda](https://www.anaconda.com/) ou outro gerenciador de ambientes.
 
 Não são obrigatórios, mas podem ajudar:
@@ -59,18 +60,50 @@ Ao executar o projeto a primeira vez:
     conda activate ./.venv
     ```
 
-5. Instalar Django
+5. Instalar os pré-requisitos do projeto
 
     ```shell
     pip install -r requirements.txt
     ```
 
-6. Criar super usuário
-    - Por padrão, sempre uso usuário `admin` e senha `123mudar`
+6. Configurar o acesso ao banco de dados
+   - No arquivo `settings.py`, configurar a variável DATABASES['default']
 
-    ``` shell
-    python manage.py createsuperuser
+    ```python
+    DATABASES['default'] = dj_database_url.config(default='postgres://USER:PASS@HOST/DATABASE_NAME')
     ```
+
+7. Executar os migrations
+
+   ```shell
+   python manage.py migrate
+   ```
+
+8. Criar super usuário
+   - Por padrão, sempre uso usuário `admin` e senha `123mudar`
+   - Pode ser usado qualquer email
+
+   ``` shell
+   python manage.py createsuperuser
+   ```
+
+9. Executar o projeto pela primeira vez, conforme descrito no item 'Executar o projeto localmente'
+
+10. Configurar usuários padrão
+    - Entrar no [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+    - Logar com super usuário
+    - Adicionar grupo sumonadores
+    - Dar, ao grupo sumonadores, as seguintes permissões
+      - "namelist | Nome | Can add Nome do Capeta"
+      - "namelist | Nome | Can change Nome do Capeta"
+      - "namelist | Nome | Can delete Nome do Capeta"
+      - "namelist | Nome | Can view Nome do Capeta"
+    - Adicionar usuário `sumonador`
+      - senha `123mudar@` ou outra qualquer
+      - email qualquer (mas diferente do super usuário admin)
+      - adicionar grupo sumonadores
+      - NÃO marcar como super usuário
+    - Se quiser, adicione outro usuário, mas sem grupo
 
 ### Alterando projeto
 
@@ -103,55 +136,92 @@ Cada vez que for testar o projeto:
 
 ### Comandos úteis
 
+#### Heroku
+
 - Abre, no navegador, a aplicação rodando no heroku
 
-```shell
-heroku open --app invoca-piroto-backend
-```
+  ```shell
+  heroku open --app invoca-piroto-backend
+  ```
 
 - Mostra os logs da aplicação
 
-```shell
-heroku logs --tail --app invoca-piroto-backend
-```
+  ```shell
+  heroku logs --tail --app invoca-piroto-backend
+  ```
 
 - Roda o bash no Heroku
 
-```shell
-heroku run bash --app invoca-piroto-backend
-```
+  ```shell
+  heroku run bash --app invoca-piroto-backend
+  ```
 
 - Configurar variáveis de configuração no heroku
 
-```shell
-heroku config:set VAR=VALUE
-```
+  ```shell
+  heroku config:set --app invoca-piroto-backend NOME=VALOR
+  ```
 
 - Ver as configurações do Heroku
 
-```shell
-heroku config
-```
+  ```shell
+  heroku config --app invoca-piroto-backend
+  ```
+
+- Ver a lista de addons usados no Heroku
+
+  ```shell
+  heroku addons
+  ```
+
+- Ver dados sobre o banco de dados usado pelo app, no Heroku
+
+  ```shell
+  heroku pg --app invoca-piroto-backend
+  ```
+
+- Roda o migrate do Django no Heroku
+
+  ```shell
+  heroku run python manage.py migrate --app invoca-piroto-backend
+  ```
+
+- Configurar super usuário no Heroku
+
+  ```shell
+  heroku run python manage.py createsuperuser --app invoca-piroto-backend
+  ```
+
+- Abre o shell do Postgres, no Heroku
+
+  ```shell
+  heroku pg:psql --app invoca-piroto-backend
+  ```
+
+#### Django
 
 - Depurar a pesquisa por arquivos estáticos, para ver em quais diretórios o Django está buscando esses arquivos
 
-```shell
-python manage.py findstatic --verbosity 2 assets/js/modules/PageNomes.js
-```
+    ```shell
+    python manage.py findstatic --verbosity 2 assets/js/modules/PageNomes.js
+    ```
 
 - Ver, no terminal, as configurações do Django
 
-```shell
-python manage.py diffsettings --all
-```
+    ```shell
+    python manage.py diffsettings --all
+    ```
 
 ## Tecnologias utilizadas
 
 Neste projeto, utilizei as seguintes tecnologias:
 
-- [Python]((https://www.python.org)
+- [Python](https://www.python.org)
 - [DJango](https://www.djangoproject.com/)
 - [Django Rest Framework](https://www.django-rest-framework.org/)
+- [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+- [dj-database-url](https://github.com/jacobian/dj-database-url)
 
 ## Links funcionais
 
