@@ -222,6 +222,7 @@ Neste projeto, utilizei as seguintes tecnologias:
 - [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 - [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
 - [dj-database-url](https://github.com/jacobian/dj-database-url)
+- [Bootstrap 4.6.0](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 
 ## Links funcionais
 
