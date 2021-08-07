@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Invoca Piroto - 500 ERROR{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+
+
+  <div class="row justify-content-center mb-3">
+    <div class="w-50 text-center mt-3 ">
+      <div class="row justify-content-center">
+        <img class="img-fluid" src="{% static 'images/500.png' %}" alt="">
+      </div>
+
+      <div class="row justify-content-center">
+        <h1>EITA PORRA!!!</h1>
+        <p class="lead"><strong>
+          Deu um pau doido aqui no servidor. A gente não faz a mínima
+          ideia do que é. Não iremos resolver tão cedo. Você pode resolver
+          pra gente? Se não puder, deita e chora.
+        </strong></p>
+        <p><strong>Sim, já estamos fazendo isso. Há muito tempo.</strong></p>
+      </div>
+
+      <div class="row form justify-content-center">
+        <div class="form-group">
+          <a class="btn btn-primary" href="/">Home <span class="sr-only">Home</span></a>
+          <a class="btn btn-primary" href="{% url 'invocacao' %}">Invoca Piroto</a>
+          <a class="btn btn-primary" href="">Enforca Piroto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
