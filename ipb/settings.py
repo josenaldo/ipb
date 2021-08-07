@@ -28,8 +28,8 @@ SECRET_KEY = 'eiq_ia&*t81^@lqn3pg+9%@9+a7++f&o=^u$g0o9vpc*$&@ytd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # TODO: Configurar o DEBUG dinamicamente, em produção
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
