@@ -9,7 +9,7 @@ class DevilNameRandomManager(models.Manager):
         random_index = randint(0, count - 1)
         return self.all()[random_index]
 
-class DevilName(models.Model):
+class DevilName(models.Model): 
 
     #managers
     randoms = DevilNameRandomManager() # The random-specific manager.
@@ -43,7 +43,7 @@ class DevilName(models.Model):
     # Methods
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
-        return reverse('devil_name_detail', args=[str(self.id)])
+        return reverse('devilname_detail', args=[str(self.id)])
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""

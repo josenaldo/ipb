@@ -35,8 +35,8 @@ def invocacao(request):
 @api_view(['GET'])
 @permission_classes((permissions.AllowAny,))
 def random_name(request):
-    devil_name = DevilName.randoms.random()
-    serializer = DevilNameSerializer(devil_name)
+    devilname = DevilName.randoms.random()
+    serializer = DevilNameSerializer(devilname)
     return Response(serializer.data)
 
 def nomes(request):
@@ -63,19 +63,19 @@ class DevilNameUpdate(PermissionRequiredMixin, UpdateView):
 class DevilNameDelete(PermissionRequiredMixin, DeleteView):
     permission_required = 'namelist.delete_devilname'
     model = DevilName
-    success_url = reverse_lazy('devil_name_list')
+    success_url = reverse_lazy('devilname_list')
 
 class DevilNameList(ListView):
     model = DevilName
 
     # your own name for the list as a template variable
-    context_object_name ='devil_name_list'
+    context_object_name ='devilname_list'
 
     # Get 5 books containing the title war
     queryset = DevilName.objects.order_by('id')
 
     # Especifica a localização do template, a partir da pasta templates
-    # template_name = 'devil_name_list.html'
+    # template_name = 'devilname_list.html'
 
     # especifica o número máximo de itens que deve aparecer na lista
     paginate_by = 10
@@ -85,7 +85,7 @@ class DevilNameList(ListView):
     def get_context_data(self, **kwargs):
 
         # MANDATORY!
-        # First get the existing context from our superclass.        
+        # First get the existing context from our superclass.
         context = super(DevilNameList, self).get_context_data(**kwargs)
 
         # Then add your new context information.
@@ -100,14 +100,11 @@ class DevilNameDetail(DetailView):
     model = DevilName
 
     # your own name for the list as a template variable
-    context_object_name ='devil_name'
-
-    # Specify your own template name/location
-    # template_name = 'devil_name_detail.html'
+    context_object_name ='devilname'
 
 
 # @permission_required('namelist.add_devilname', raise_exception=True)
-# def devil_name_add(request):
+# def devilname_add(request):
 
 #     context = {}
 
@@ -116,16 +113,16 @@ class DevilNameDetail(DetailView):
 
 #         if form.is_valid():
 
-#             existent_devil_name = DevilName.objects.filter(name=form.cleaned_data['name'])
+#             existent_devilname = DevilName.objects.filter(name=form.cleaned_data['name'])
 
-#             if(existent_devil_name):
+#             if(existent_devilname):
 #                 message = "Nome do capeta já existe."
 #             else:
-#                 devil_name_instance = DevilName()
-#                 devil_name_instance.name = form.cleaned_data['name']
-#                 devil_name_instance.save()
+#                 devilname_instance = DevilName()
+#                 devilname_instance.name = form.cleaned_data['name']
+#                 devilname_instance.save()
 
-#                 message = "Nome do capeta adicionado: " + devil_name_instance.name
+#                 message = "Nome do capeta adicionado: " + devilname_instance.name
 #                 form = NewDevilNameForm()
 
 #             context['message'] = message
@@ -135,4 +132,4 @@ class DevilNameDetail(DetailView):
 
 #     context['form'] = form
 
-#     return render(request, 'devil_name_add.html', context)
+#     return render(request, 'devilname_add.html', context)

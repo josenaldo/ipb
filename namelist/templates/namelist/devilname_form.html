@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% load static %}
+{% load static %} 
 
 <div class="container">
     <div class="row justify-content-center">
@@ -35,11 +35,11 @@
             <div class="form-group text-center">
 
                 {% if object.id %}
-                <a href="{% url 'devil_name_detail' object.id %}" class="btn btn-info">Visualizar</a>
+                <a href="{% url 'devilname_detail' object.id %}" class="btn btn-info">Visualizar</a>
                 {% endif %}
 
                 <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a href="{% url 'devil_name_list' %}" class="btn btn-light">Cancelar</a>
+                <a href="{% url 'devilname_list' %}" class="btn btn-light">Cancelar</a>
             </div>
 
         </form>

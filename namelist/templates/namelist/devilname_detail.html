@@ -22,24 +22,24 @@
     <table class="table table-bordered">
       <tr>
         <th>ID</th>
-        <td> {{ devil_name.id }}</td>
+        <td> {{ devilname.id }}</td>
       </tr>
       <tr>
         <th>Nome</th>
-        <td>{{ devil_name.name }}</td>
+        <td>{{ devilname.name }}</td>
       </tr>
       <tr>
         <th>Data de Criação</th>
-        <td> {{ devil_name.creation_date }}</td>
+        <td> {{ devilname.creation_date }}</td>
       </tr>
     </table>
   </div>
 
   <div class="row justify-content-center">
       <div class="form-group">
-        <a href="{% url 'devil_name_update' devil_name.id %}" class="btn btn-secondary">Editar</a>
-        <a href="{% url 'devil_name_delete' devil_name.id %}" class="btn btn-danger">Remover</a>
-        <a href="{% url 'devil_name_list'  %}" class="btn btn-light">Voltar</a>
+        <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-secondary">Editar</a>
+        <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-danger">Remover</a>
+        <a href="{% url 'devilname_list'  %}" class="btn btn-light">Voltar</a>
       </div>
   </div>
 
