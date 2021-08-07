@@ -28,7 +28,8 @@ SECRET_KEY = 'eiq_ia&*t81^@lqn3pg+9%@9+a7++f&o=^u$g0o9vpc*$&@ytd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # TODO: Configurar o DEBUG dinamicamente, em produção
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
@@ -124,7 +125,7 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
