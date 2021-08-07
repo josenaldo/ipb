@@ -78,7 +78,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'namelist.context_processors.social_settings',
             ],
         },
     },
@@ -158,16 +157,6 @@ LOGIN_URL = '/autenticacao/login/'
 # Isso registra todos os emails enviados ao console (para que você 
 # possa copiar o link de redefinição de senha do console).
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-SOCIAL = {
-    'twitter_username': 'vudureverso',
-    'github_username': 'josenaldo',
-    'instagram_username': 'vudureverso',
-    'reddit_username': 'vudureverso',
-    'linkedin_link': 'https://www.linkedin.com/in/josenaldo/',
-    'facebook_link': 'https://www.facebook.com/josenaldo.matos',
-    'email': 'josenaldo@gmail.com',
-}
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
