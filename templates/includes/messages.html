@@ -6,7 +6,7 @@
         <div class="col">
             <div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible fade show" {% endif %}
                 role="alert">
-                {{ message }}
+                {{ message|safe }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
