@@ -84,6 +84,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ipb.wsgi.application'
 
+# Messages
+# https://docs.djangoproject.com/en/3.2/ref/contrib/messages/
+
+from django.contrib.messages import constants as messages
+from django.contrib.messages import constants as message_constants
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
+
+MESSAGE_LEVEL = message_constants.DEBUG
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
