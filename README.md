@@ -52,7 +52,14 @@ Ao executar o projeto a primeira vez:
 
 3. Instalar Anaconda
 
+   - Após instalar o Anaconda, executar , no terminal, o comando
+
+  ```shell
+  conda init
+  ```
+
 4. Criar e ativar ambiente virtual
+
    - É muito importante que o ambiente virtual seja salvo em uma pasta com um nome DIFERENTE de `.env`. Uma sugestção é `.venv`.
 
     ```shell
@@ -67,6 +74,7 @@ Ao executar o projeto a primeira vez:
     ```
 
 6. Configurar o acesso ao banco de dados
+
    - No arquivo `settings.py`, configurar a variável DATABASES['default']
 
     ```python
@@ -80,6 +88,7 @@ Ao executar o projeto a primeira vez:
    ```
 
 8. Criar super usuário
+
    - Por padrão, sempre uso usuário `admin` e senha `123mudar`
    - Pode ser usado qualquer email
 
@@ -90,6 +99,7 @@ Ao executar o projeto a primeira vez:
 9. Executar o projeto pela primeira vez, conforme descrito no item 'Executar o projeto localmente'
 
 10. Configurar usuários padrão
+
     - Entrar no [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
     - Logar com super usuário
     - Adicionar grupo sumonadores
@@ -144,6 +154,12 @@ Cada vez que for testar o projeto:
   heroku open --app invoca-piroto-backend
   ```
 
+- Reinicia aplicação no Heroku
+
+  ```shell
+  heroku restart --app invoca-piroto-backend
+  ```
+
 - Mostra os logs da aplicação
 
   ```shell
@@ -168,10 +184,16 @@ Cada vez que for testar o projeto:
   heroku config --app invoca-piroto-backend
   ```
 
+- Copia toas as configurações de produção e as coloca no arquivo .env
+
+  ```shell
+  heroku config:get CONFIG-VAR-NAME --app invoca-piroto-backend -s  >> .env
+  ```
+
 - Ver a lista de addons usados no Heroku
 
   ```shell
-  heroku addons
+  heroku addons --app invoca-piroto-backend
   ```
 
 - Ver dados sobre o banco de dados usado pelo app, no Heroku
