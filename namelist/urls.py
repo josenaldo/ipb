@@ -16,6 +16,7 @@ urlpatterns += [
     path('nomes/<int:pk>/editar/', views.DevilNameUpdate.as_view(), name='devilname_update'),
     path('nomes/<int:pk>/remover/', views.DevilNameDelete.as_view(), name='devilname_delete'),
 
+    path('nomes/importar/', views.init_import, name='devilname_init_import'),
     path('api/random', views.random_name, name='random'),
 ]
 
