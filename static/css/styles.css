@@ -264,3 +264,38 @@ h6 {
   letter-spacing: 5px;
 }
 
+/* JOGO DA FORCA */
+
+.score {
+  color: black !important;
+}
+
+@media (max-width: 575px) {
+  .score h2{
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .score h2{
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .score h2{
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .score h2{
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .score h2{
+    font-size: 1.8rem;
+  }
+}
