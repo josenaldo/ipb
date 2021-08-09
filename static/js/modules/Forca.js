@@ -20,10 +20,10 @@ define("Forca",
         wordDashes = [];
         errors = 0;
         misses = [];
-        DevilNames.init(function () {
-            selectSecretDevilName()
-            EventManager.publish(Constants.EVENTS.GAME_STARTED_EVENT, this);
-        })
+
+        DevilNames.getRandomName(selectSecretDevilName);
+        EventManager.publish(Constants.EVENTS.GAME_STARTED_EVENT, this);
+
     };
 
     var getSecret = function () {
@@ -50,8 +50,8 @@ define("Forca",
         return lost;
     }
 
-    var selectSecretDevilName = function () {
-        secret = DevilNames.getRandomName().split("");
+    var selectSecretDevilName = function (data) {
+        secret = data.name.split("");
         wordDashes = "_".repeat(secret.length).split("")
         revealNonAlphaChars()
     };

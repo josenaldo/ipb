@@ -38,6 +38,14 @@ def invocacao(request):
 
     return render(request, 'invocacao.html', context=context)
 
+def forca(request):
+
+    context = {
+        'my_data_main': 'app-forca.js'
+    }
+
+    return render(request, 'forca.html', context=context)
+
 
 def devilname_import(request):
     context = {}

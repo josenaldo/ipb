@@ -22,7 +22,7 @@
                         <a class="nav-link" href="{% url 'invocacao' %}">Invoca Piroto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Enforca Piroto</a>
+                        <a class="nav-link" href="{% url 'forca' %}">Enforca Piroto</a>
                     </li>
                     {% if perms.namelist.add_devilname %}
                         <li><a class="nav-link" href="{% url 'devilname_list'%}">Admin</a></li>
