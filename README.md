@@ -202,6 +202,12 @@ Cada vez que for testar o projeto:
   heroku pg --app invoca-piroto-backend
   ```
 
+- Reseta o banco de dados no heroku
+
+  ```shell
+  heroku pg:reset DATABASE --app invoca-piroto-backend
+  ```
+
 - Roda o migrate do Django no Heroku
 
   ```shell
