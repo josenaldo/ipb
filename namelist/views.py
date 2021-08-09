@@ -39,7 +39,7 @@ def invocacao(request):
     return render(request, 'invocacao.html', context=context)
 
 
-def init_import(request):
+def devilname_import(request):
     context = {}
 
     if request.method == "POST":
@@ -84,7 +84,7 @@ def init_import(request):
 
     context['form'] = form
 
-    return render(request, 'namelist/devilname_init_import.html', context=context)
+    return render(request, 'namelist/devilname_import.html', context=context)
 
 
 @api_view(['GET'])
