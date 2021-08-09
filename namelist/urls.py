@@ -26,7 +26,6 @@ from rest_framework import routers
 # Routers provide a way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'devilnames', views.DevilNameViewSet)
-# router.register(r'random', views.RandomDevilNameViewSet)
 
 urlpatterns += [
     path('api/', include(router.urls)),
