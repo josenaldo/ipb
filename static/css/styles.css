@@ -264,17 +264,3 @@ h6 {
   letter-spacing: 5px;
 }
 
-
-.pagination .page-item a.page-link {
-  border: 1px solid #dee2e6;
-  color: #909090;
-  padding: .5rem .9rem;
-}
-
-.pagination .page-item a.page-link:hover,
-.pagination .page-item a.page-link:focus {
-  color: #611F6A;
-  border: 1px solid #dee2e6;
-  box-shadow: none;
-  background-color: #dee2e6;
-}
