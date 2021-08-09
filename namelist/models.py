@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models.fields import CharField, DateTimeField
 from django.urls import reverse
+from django.utils import timezone
+
 from random import randint
 
 class DevilNameRandomManager(models.Manager):
@@ -9,7 +11,7 @@ class DevilNameRandomManager(models.Manager):
         random_index = randint(0, count - 1)
         return self.all()[random_index]
 
-class DevilName(models.Model): 
+class DevilName(models.Model):
 
     #managers
     randoms = DevilNameRandomManager() # The random-specific manager.
@@ -32,7 +34,7 @@ class DevilName(models.Model):
     creation_date = DateTimeField(
         verbose_name="Data de criação",
         help_text="Data de criação do nome do capeta",
-        auto_now_add=True,
+        default=timezone.now,
     )
 
     # Metadata
