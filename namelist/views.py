@@ -46,7 +46,7 @@ def forca(request):
 
     return render(request, 'forca.html', context=context)
 
-
+@permission_required('namelist.add_devilname')
 def devilname_import(request):
     context = {}
 
@@ -159,11 +159,16 @@ class DevilNameList(ListView):
 
         # Then add your new context information.
         num_names = DevilName.objects.all().count()
-        context['num_names'] = num_names
+        context['count'] = num_names
 
         # MANDATORY!
         # Then return the new (updated) context.
         return context
+
+    def get_ordering(self):
+        ordering = self.request.GET.get('ordering', '-id')
+        # validate ordering here
+        return ordering
 
 
 class DevilNameDetail(DetailView):
