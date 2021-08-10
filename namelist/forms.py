@@ -43,7 +43,7 @@ class ImportDevilNameForm(forms.Form):
     # TODO: Validar se o nome é único (não pode cadastrar um nome que já existe)
     csv_file = forms.FileField (
         help_text="Envie apenas arquivos CSV",
-        label="Selecione um arquivo de Nomes do Capeta",
+        label="Selecione um arquivo",
         error_messages={'required': 'é necessário informar um arquivo'}
     )
 

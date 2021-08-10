@@ -1,9 +1,15 @@
 
 /* APP */
 
+body {
+  padding-top: 40px;
+}
+
 .navbar-toggler {
   padding: .25rem;
 }
+
+
 
 /***************************************************************
  INVOCAÇÃO
@@ -196,7 +202,7 @@ h6 {
   border-bottom: 0;
   border-left: 0;
   margin-left: -25px;
-  margin-bottom: -50px;
+  margin-bottom: -48px;
 }
 
 #devil-name {

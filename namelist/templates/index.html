@@ -7,14 +7,19 @@
 {% load static %}
 <div class="container">
     <div class="card-deck mb-4">
+
         <div class="card text-center">
-            <img class="card-img-top" src=" {% static 'images/home/thumb-invocacao.jpg' %}" alt="Card image cap">
+            <div class="card-header">
+                <img class="card-img-top" src=" {% static 'images/home/thumb-invocacao.jpg' %}" alt="Invoque um nome do Capeta">
+            </div>
+
             <div class="card-body">
                 <h5 class="card-title">Jogo do Invoca Piroto</h5>
                 <p class="card-text">Precisando de um impropério para enviar para seu político ou chefe favorito?</p>
                 <a href="{% url 'invocacao'%}" class="btn btn-primary">Invoca lá!</a>
             </div>
         </div>
+
         <div class="card text-center">
             <img class="card-img-top" src="{% static 'images/home/thumb-forca.jpg' %}" alt="Card image cap">
             <div class="card-body">
@@ -23,6 +28,7 @@
                 <a href="{% url 'forca'%}" class="btn btn-primary">Enforca lá!</a>
             </div>
         </div>
+
         <div class="card text-center">
             <img class="card-img-top" src="{% static 'images/home/thumb-nomes.jpg' %}" alt="Card image cap">
             <div class="card-body">
@@ -31,6 +37,7 @@
                 <a href="{% url 'devilname_list'%}" class="btn btn-primary">Invoca lá!</a>
             </div>
         </div>
+
     </div>
 </div>
 {% endblock %}

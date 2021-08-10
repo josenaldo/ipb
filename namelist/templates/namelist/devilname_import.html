@@ -8,23 +8,60 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Importar Nomes do Capeta</h1>
+        <div class="col-auto text-center">
+            <h1>Importar Nomes do Capeta</h1>
+        </div>
     </div>
 
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-12 col-md-10 col-lg-8">
 
+            <div class="component mb-3 ">
+                <div class="card">
+                    <form enctype="multipart/form-data" method="post" class="form-horizontal">
+                        {% csrf_token %}
+
+                        <div class="card-body pb-1 pt-1">
+                            <span class="badge badge-success">{{devilname.id}}</span>
+
+                            <div class="form-row">
+                                <div class="input-group mb-1">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input"
+                                                id="{{ form.csv_file.id_for_label }}"
+                                                name="{{ form.csv_file.html_name }}"
+                                                value="{{ form.csv_file.value }}">
+                                            <label class="custom-file-label"
+                                                for="customFile">{{ form.csv_file.label }}</label>
+                                        </div>
+                                        {{ form.csv_file.errors }}
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center pt-0">
+
+                            <a href="{% url 'devilname_list' %}" class="btn btn-sm btn-light">
+                                <i class="fas fa-fw fa-arrow-left"></i>
+                            </a>
+
+                            <button type="submit" value="Salvar" class="btn btn-sm btn-primary">
+                                <i class="fas fa-fw fa-save"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% comment %} 
     <div class="row justify-content-center">
         <div class="col">
             <form enctype="multipart/form-data" method="post" class="form-horizontal">
                 {% csrf_token %}
 
-                <div class="input-group mb-1">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="{{ form.csv_file.id_for_label }}"
-                            name="{{ form.csv_file.html_name }}">
-                        <label class="custom-file-label" for="customFile">{{ form.csv_file.label }}</label>
-                    </div>
-                    {{ form.csv_file.errors }}
-                </div>
+
 
                 <div class="form-group text-center">
                     <input type="submit" value="Salvar" class="btn btn-primary" />
@@ -33,7 +70,7 @@
 
             </form>
         </div>
-    </div>
+    </div> {% endcomment %}
 
     {% if fail_names %}
     <div class="row justify-content-center mb-3">
