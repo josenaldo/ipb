@@ -1,3 +1,9 @@
+
+
+/***************************************************************
+ INVOCAÇÃO
+***************************************************************/
+
 @-webkit-keyframes swing {
   15% {
     -webkit-transform: translateX(5px);
@@ -247,6 +253,12 @@ h6 {
   animation-iteration-count: 1;
 }
 
+
+
+/***************************************************************
+  JOGO DA FORCA
+***************************************************************/
+
 .keyboard-row {
   margin-bottom: 10px;
 }
@@ -264,7 +276,6 @@ h6 {
   letter-spacing: 5px;
 }
 
-/* JOGO DA FORCA */
 
 .score {
   color: black !important;

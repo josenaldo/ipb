@@ -8,18 +8,54 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Lista de nomes do capeta</h1>
-    </div>
-
-    <div class="row justify-content-center mb-3">
-        <div class="co-sm-auto">
-            <a href="{% url 'devilname_create' %}" class="btn btn-primary mb-2"> Adicionar Nome do Capeta</a>
-            <a href="{% url 'devilname_import' %}" class="btn btn-secondary mb-2"> Importar Nomes do Capeta</a>
+        <div class="col-auto text-center">
+            <h1>Lista de nomes do capeta</h1>
         </div>
     </div>
 
+    {% if perms.namelist.add_devilname %}
+    <div class="row justify-content-center mb-3">
+        <div class="col-auto">
+            <a href="{% url 'devilname_create' %}" class="btn btn-primary mb-2"> <i class="fas fa-fw fa-plus"></i></a>
+            <a href="{% url 'devilname_import' %}" class="btn btn-secondary mb-2"> <i class="fas fa-fw fa-upload"></i></a>
+        </div>
+    </div>
+    {% endif %}
+
     {% if devilname_list %}
-    <div class="row justify-content-center">
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            {% for devilname in devilname_list %}
+
+                <div class="component mb-3 ">
+                    <div class="card">
+                        <div class="card-body text-center pb-1 pt-1">
+                            <span class="badge badge-success">{{devilname.id}}</span>
+                            <h4 class="card-title mb-1">{{devilname.name}}</h4>
+                            <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y"}}</span>
+                        </div>
+                        <div class="card-footer text-center pt-0">
+                            <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
+                                <i class="fas fa-fw fa-folder-open"></i>
+                            </a>
+                            {% if perms.namelist.add_devilname %}
+                            <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
+                                <i class="fas fa-fw fa-edit"></i>
+                            </a>
+                            <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-fw fa-minus-square"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    {% comment %} <div class="row justify-content-center">
 
         <div class="table-responsive-sm">
             <table class="table table-striped table-hover">
@@ -59,7 +95,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> {% endcomment %}
 
     {% else %}
     <div class="row justify-content-center">
