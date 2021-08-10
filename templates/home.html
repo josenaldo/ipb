@@ -11,9 +11,7 @@
     {% include "includes/head-social.html" %}
 </head>
 
-
 <body>
-
     <div class="bs-canvas-overlay bs-canvas-anim bg-dark position-fixed w-100 h-100"></div>
 
     {% include "includes/navbar.html" %}
@@ -30,10 +28,8 @@
 
     {% include "includes/banner.html" %}
 
-    <main role="main">
-        {% block content %}{% endblock %}
-    </main>
-
+    {% block content %}{% endblock %}
+    
     {% include "includes/footer.html" %}
 
     {% include "includes/scripts.html" %}

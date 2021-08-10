@@ -6,18 +6,21 @@
 
 {% load static %}
 
-<div class="container bg-white mb-5">
-    <div class="row justify-content-center">
-        <div class="col-auto text-center">
-            <i class="fas fa-fw fa-book-dead fa-7x text-primary"></i>
-            <h2>O maior compêndio de nomes do capeta da internet!</h2>
-            <p class="lead">Até o momento, foram invocados {{count}} Nomes do Capeta</p>
+<section class="bg-white mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center">
+                <i class="fas fa-fw fa-book-dead fa-7x text-primary mb-3"></i>
+                <h2>O maior compêndio de nomes do capeta da internet!</h2>
+                <p class="lead">Até o momento, foram invocados {{count}} Nomes do Capeta</p>
+            </div>
         </div>
     </div>
-</div>
+
+</section>
 
 
-<div class="row bg-primary">
+<section class="bg-primary">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-auto text-center pt-5">
@@ -25,8 +28,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row bg-primary">
+
     <div class="container p-5 ">
         <div class="card-deck">
             <div class="card text-center mb-3 border-primary">
@@ -67,22 +69,22 @@
 
         </div>
     </div>
-</div>
+</section>
 
-<div class="row bg-light">
+<section class="bg-light ">
     <div class="container bg-light pt-5">
         <div class="row justify-content-center">
             <div class="col-auto text-center">
-    
+
                 <h2>Os últimos Nomes Invocados</h2>
                 <p class="lead">Acompanhe os últimos nomes do Capeta encontrados!</p>
             </div>
         </div>
         {% if devilname_list %}
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center">
             <div class="col-sm-12 col-md-10 col-lg-8">
                 {% for devilname in devilname_list %}
-    
+
                 <div class="component mb-3 ">
                     <div class="card">
                         <div class="card-body text-center pb-1 pt-1">
@@ -108,7 +110,7 @@
                 {% endfor %}
             </div>
         </div>
-    
+
         {% else %}
         <div class="row justify-content-center">
             <div class="col-md-auto text-center">
@@ -117,5 +119,5 @@
         </div>
         {% endif %}
     </div>
-</div>
+</section>
 {% endblock %}
