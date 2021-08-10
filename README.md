@@ -244,12 +244,14 @@ Cada vez que for testar o projeto:
 
 Neste projeto, utilizei as seguintes tecnologias:
 
-- [Python](https://www.python.org)
-- [DJango](https://www.djangoproject.com/)
-- [Django Rest Framework](https://www.django-rest-framework.org/)
-- [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
-- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
-- [dj-database-url](https://github.com/jacobian/dj-database-url)
+- [Python 3.9.2](https://www.python.org)
+- [DJango 3.1.7](https://www.djangoproject.com/)
+- [Django Rest Framework 3.12.4](https://www.django-rest-framework.org/)
+- [Django-heroku 0.3.1](https://github.com/heroku/django-heroku)
+- [PostgreSQL 13.3](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- [psycopg2-binary 2.9.1](https://pypi.org/project/psycopg2-binary/)
+- [dj-database-url 0.5.0](https://github.com/jacobian/dj-database-url)
+- [django-fullurl 1.1](https://pypi.org/project/django-fullurl)
 - [Bootstrap 4.6.0](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 
 ## Links funcionais
