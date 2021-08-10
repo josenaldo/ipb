@@ -11,6 +11,33 @@ class NewDevilNameForm(forms.Form):
         error_messages={'required': 'é necessário informar um Nome do Capeta'}
     )
 
+
+ORDER_BY_VALUES = [
+    ('id', 'ID ASC'),
+    ('-id', 'ID DESC'),
+    ('name', 'Nome ASC'),
+    ('-name', 'Nome DESC'),
+    ('creation_date', 'Criação ASC'),
+    ('-creation_date', 'Criação DESC'),
+]
+
+class DevilNameSearchForm(forms.Form):
+
+    # TODO: Validar se o nome é único (não pode cadastrar um nome que já existe)
+    search = forms.CharField (
+        help_text="Pesquise",
+        label="Pesquisa",
+        max_length=255,
+        required=False,
+    )
+
+    ordering = forms.ChoiceField(
+        label="Ordenação",
+        required=False,
+        choices=ORDER_BY_VALUES,
+        initial=ORDER_BY_VALUES[2],
+    )
+
 class ImportDevilNameForm(forms.Form):
 
     # TODO: Validar se o nome é único (não pode cadastrar um nome que já existe)
@@ -19,3 +46,4 @@ class ImportDevilNameForm(forms.Form):
         label="Selecione um arquivo de Nomes do Capeta",
         error_messages={'required': 'é necessário informar um arquivo'}
     )
+

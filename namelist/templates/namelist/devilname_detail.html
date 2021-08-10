@@ -7,43 +7,43 @@
 {% load static %}
 
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-auto text-center">
-      <h1>Ver Nome do Capeta</h1>
-    </div>
-  </div>
-
-  <div class="row justify-content-center mb-3">
-    <div class="col-sm-12 col-md-10 col-lg-8">
-
-      <div class="component mb-3 ">
-        <div class="card">
-          <div class="card-body text-center pb-1 pt-1">
-            <span class="badge badge-success">{{devilname.id}}</span>
-            <h4 class="card-title mb-1">{{devilname.name}}</h4>
-            <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y"}}</span>
-          </div>
-          <div class="card-footer text-center pt-0">
-            <a href="{% url 'devilname_list' %}" class="btn btn-sm btn-light">
-              <i class="fas fa-fw fa-arrow-left"></i>
-            </a>
-
-            {% if perms.namelist.add_devilname %}
-            <a href="{% url 'devilname_create' %}" class="btn btn-sm btn-primary">
-              <i class="fas fa-fw fa-plus"></i>
-            </a>
-            <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
-              <i class="fas fa-fw fa-edit"></i>
-            </a>
-            <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
-              <i class="fas fa-fw fa-minus-square"></i>
-            </a>
-            {% endif %}
-          </div>
+    <div class="row justify-content-center">
+        <div class="col-auto text-center">
+            <h1>Ver Nome do Capeta</h1>
         </div>
-      </div>
     </div>
-  </div>
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+
+            <div class="component mb-3 ">
+                <div class="card">
+                    <div class="card-body text-center pb-1 pt-1">
+                        <span class="badge badge-success">{{devilname.id}}</span>
+                        <h4 class="card-title mb-1">{{devilname.name}}</h4>
+                        <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y"}}</span>
+                    </div>
+                    <div class="card-footer text-center pt-0">
+                        <a href="{% url 'devilname_list' %}" class="btn btn-sm btn-light">
+                            <i class="fas fa-fw fa-arrow-left"></i>
+                        </a>
+
+                        {% if perms.namelist.add_devilname %}
+                        <a href="{% url 'devilname_create' %}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-fw fa-plus"></i>
+                        </a>
+                        <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-fw fa-edit"></i>
+                        </a>
+                        <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-fw fa-minus-square"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

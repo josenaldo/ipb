@@ -1,5 +1,5 @@
 {% if is_paginated %}
-
+{% load query_transform %}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-auto">
@@ -8,13 +8,13 @@
                 <ul class="pagination">
                     {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="{{ request.path }}?page=1">
+                        <a class="page-link" href="{{ request.path }}?{% query_transform page=1 %}">
                             <i class="fas fa-angle-double-left"></i>
                         </a>
                     </li>
 
                     <li class="page-item">
-                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">
+                        <a class="page-link" href="{{ request.path }}?{% query_transform page=page_obj.previous_page_number %}">
                            <i class="fas fa-angle-left"></i>
                         </a>
                     </li>
@@ -30,11 +30,11 @@
                     {% for i in page_obj.paginator.page_range %}
                         {% if i < page_obj.number and i >= page_obj.number|add:"-1" and i != page_obj.number and i != 1 %}
                             <li class="page-item">
-                                <a class="page-link" href="{{ request.path }}?page={{ i }}">{{ i }}</a>
+                                <a class="page-link" href="{{ request.path }}?{% query_transform page=i %}">{{ i }}</a>
                             </li>
                         {% elif i > page_obj.number and i <= page_obj.number|add:"1" and i != page_obj.number and i != page_obj.paginator.num_pages %}
                             <li class="page-item">
-                                <a class="page-link" href="{{ request.path }}?page={{ i }}">{{ i }}</a>
+                                <a class="page-link" href="{{ request.path }}?{% query_transform page=i %}">{{ i }}</a>
                             </li>
                         {% elif page_obj.number == i %}
                             <li class="page-item active">
@@ -46,13 +46,13 @@
 
                     {% if page_obj.has_next %}
                     <li class="page-item">
-                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">
+                        <a class="page-link" href="{{ request.path }}?{% query_transform page=page_obj.next_page_number %}">
                             <i class="fas fa-angle-right"></i>
                         </a>
                     </li>
 
                     <li class="page-item">
-                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.paginator.num_pages }}">
+                        <a class="page-link" href="{{ request.path }}?{% query_transform page=page_obj.paginator.num_pages %}">
                             <i class="fas fa-angle-double-right"></i>
                         </a>
                     </li>

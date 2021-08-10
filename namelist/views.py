@@ -17,7 +17,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
 
 from namelist.models import DevilName
-from namelist.forms import ImportDevilNameForm
+from namelist.forms import DevilNameSearchForm, ImportDevilNameForm
 from namelist.serializers import DevilNameSerializer
 
 # Create your views here.
@@ -153,13 +153,14 @@ class DevilNameList(ListView):
     context_object_name = 'devilname_list'
 
     # Get 5 books containing the title war
-    queryset = DevilName.objects.order_by('id')
-
-    # Especifica a localização do template, a partir da pasta templates
-    # template_name = 'devilname_list.html'
+    # queryset = DevilName.objects.order_by('id')
+    ordering = 'id'
 
     # especifica o número máximo de itens que deve aparecer na lista
     paginate_by = 10
+
+    # especifica a classe do formukario de busca
+    form_class = DevilNameSearchForm
 
     # Override get_context_data() in order to pass additional
     # context variables to the template
@@ -167,15 +168,36 @@ class DevilNameList(ListView):
 
         context = super(DevilNameList, self).get_context_data(**kwargs)
 
+        form = self.form_class(self.request.GET)
+        context['form'] = form
+
         num_names = DevilName.objects.all().count()
         context['count'] = num_names
         context['page_title'] = 'Lista de Nomes do Capeta'
+        context['ordering'] = self.get_ordering()
 
         return context
 
+    def get_queryset(self):
+
+        form = self.form_class(self.request.GET)
+
+        if form.is_valid():
+            search = form.cleaned_data['search']
+
+            if search:
+                return self.model.objects.filter(name__icontains=search).order_by(self.get_ordering())
+
+        return self.model.objects.all().order_by(self.get_ordering())
+
     def get_ordering(self):
-        ordering = self.request.GET.get('ordering', '-id')
-        # validate ordering here
+        ordering_param = self.request.GET.get('ordering', '')
+
+        if ordering_param:
+            ordering = ordering_param
+        else:
+            ordering = 'id'
+
         return ordering
 
 class DevilNameDetail(DetailView):

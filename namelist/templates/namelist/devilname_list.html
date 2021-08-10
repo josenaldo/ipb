@@ -5,6 +5,7 @@
 {% block content %}
 
 {% load static %}
+{% load query_transform %}
 
 <div class="container">
     <div class="row justify-content-center">
@@ -17,10 +18,55 @@
     <div class="row justify-content-center mb-3">
         <div class="col-auto">
             <a href="{% url 'devilname_create' %}" class="btn btn-primary mb-2"> <i class="fas fa-fw fa-plus"></i></a>
-            <a href="{% url 'devilname_import' %}" class="btn btn-secondary mb-2"> <i class="fas fa-fw fa-upload"></i></a>
+            <a href="{% url 'devilname_import' %}" class="btn btn-secondary mb-2"> <i
+                    class="fas fa-fw fa-upload"></i></a>
         </div>
     </div>
     {% endif %}
+
+    <div class="row justify-content-center mb-3">
+
+
+        <div class="col-auto text-center">
+            <form method="get">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="{{ form.ordering.id_for_label }}">{{ form.ordering.label }}</label>
+                            <select class="form-control" id="{{ form.ordering.id_for_label }}"
+                                name="{{ form.ordering.html_name }}" value="{{ form.ordering.value }}">
+                                {% for  value, text  in form.ordering.field.choices  %}
+                                {% if form.ordering.value == value %}
+                                <option value="{{value}}" selected>{{text}}</option>
+                                {% else %}
+                                <option value="{{value}}">{{text}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="{{ form.search.id_for_label }}">{{ form.search.label }}</label>
+                            <div class="input-group">
+                                <input type="text" id="{{ form.search.id_for_label }}" name="{{ form.search.html_name }}"
+                                    value="{{ form.search.value|default_if_none:'' }}" class="form-control"
+                                    aria-label="{{ form.search.label }}" aria-describedby="search-label">
+                                <div class="input-group-append ">
+                                    <button type="submit" class="btn btn-outline-primary border-bottom-0" id="search-label">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
 
     {% if devilname_list %}
 
@@ -28,28 +74,28 @@
         <div class="col-sm-12 col-md-10 col-lg-8">
             {% for devilname in devilname_list %}
 
-                <div class="component mb-3 ">
-                    <div class="card">
-                        <div class="card-body text-center pb-1 pt-1">
-                            <span class="badge badge-success">{{devilname.id}}</span>
-                            <h4 class="card-title mb-1">{{devilname.name}}</h4>
-                            <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y"}}</span>
-                        </div>
-                        <div class="card-footer text-center pt-0">
-                            <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
-                                <i class="fas fa-fw fa-folder-open"></i>
-                            </a>
-                            {% if perms.namelist.add_devilname %}
-                            <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
-                                <i class="fas fa-fw fa-edit"></i>
-                            </a>
-                            <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
-                                <i class="fas fa-fw fa-minus-square"></i>
-                            </a>
-                            {% endif %}
-                        </div>
+            <div class="component mb-3 ">
+                <div class="card">
+                    <div class="card-body text-center pb-1 pt-1">
+                        <span class="badge badge-success">{{devilname.id}}</span>
+                        <h4 class="card-title mb-1">{{devilname.name}}</h4>
+                        <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y H:i:s"}}</span>
+                    </div>
+                    <div class="card-footer text-center pt-0">
+                        <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
+                            <i class="fas fa-fw fa-folder-open"></i>
+                        </a>
+                        {% if perms.namelist.add_devilname %}
+                        <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-fw fa-edit"></i>
+                        </a>
+                        <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-fw fa-minus-square"></i>
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>

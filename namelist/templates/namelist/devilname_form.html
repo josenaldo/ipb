@@ -7,44 +7,63 @@
 {% load static %}
 
 <div class="container">
-    <div class="row justify-content-center">
-        <h1>Adicionar Nome do Capeta</h1>
-    </div>
 
     <div class="row justify-content-center">
-        {%if message%}
-        <p>{{message}}</p>
+        <div class="col-auto text-center">
+        {% if object.id %}
+            <h1>Atualizar Nome do Capeta</h1>
+        {% else %}
+            <h1>Adicionar Nome do Capeta</h1>
         {% endif %}
-    </div>
-
-
-    <div class="row justify-content-center">
-        <div class="col">
-            <form action="" method="post">
-            {% csrf_token %}
-
-            <div class="form-row">
-                <div class="form-group col text-center">
-                    {{ form.name.label_tag }}
-                    <input class="form-control" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}"
-                        value="{{ form.name.value|default:''}}" type="text" />
-                    {{ form.name.errors }}
-                </div>
-            </div>
-
-            <div class="form-group text-center">
-
-                {% if object.id %}
-                <a href="{% url 'devilname_detail' object.id %}" class="btn btn-info">Visualizar</a>
-                {% endif %}
-
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a href="{% url 'devilname_list' %}" class="btn btn-light">Cancelar</a>
-            </div>
-
-        </form>
         </div>
     </div>
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+
+            <div class="component mb-3 ">
+                <div class="card">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="card-body text-center pb-1 pt-1">
+                            <span class="badge badge-success">{{devilname.id}}</span>
+
+
+
+                            <div class="form-row">
+                                <div class="form-group col text-center">
+                                    <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+
+                                    <input class="form-control" id="{{ form.name.id_for_label }}"
+                                        name="{{ form.name.html_name }}" value="{{ form.name.value|default:''}}"
+                                        type="text" />
+                                    {{ form.name.errors }}
+                                </div>
+                            </div>
+
+                            <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y"}}</span>
+                        </div>
+                        <div class="card-footer text-center pt-0">
+
+                            <a href="{% url 'devilname_list' %}" class="btn btn-sm btn-light">
+                                <i class="fas fa-fw fa-arrow-left"></i>
+                            </a>
+                            {% if object.id %}
+                            <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
+                                <i class="fas fa-fw fa-folder-open"></i>
+                            </a>
+                            {% endif %}
+                            <button type="submit" value="Salvar" class="btn btn-sm btn-primary">
+                                <i class="fas fa-fw fa-save"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 
