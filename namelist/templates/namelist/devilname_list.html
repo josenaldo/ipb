@@ -54,49 +54,6 @@
         </div>
     </div>
 
-
-    {% comment %} <div class="row justify-content-center">
-
-        <div class="table-responsive-sm">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Data de Criação</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for devilname in devilname_list %}
-                    <tr>
-                        <td>
-                            {{devilname.id}}
-                        </td>
-                        <td class="text-break">
-                            <a href="{{ devilname.get_absolute_url }}">{{ devilname.name }}</a>
-                        </td>
-                        <td>
-                            {{devilname.creation_date}}
-                        </td>
-                        <td>
-                            <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-info">
-                                <i class="fas fa-fw fa-folder-open"></i>
-                            </a>
-                            <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-secondary">
-                                <i class="fas fa-fw fa-edit"></i>
-                            </a>
-                            <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-danger">
-                                <i class="fas fa-fw fa-minus-square"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div> {% endcomment %}
-
     {% else %}
     <div class="row justify-content-center">
         <div class="col-md-auto">
@@ -106,7 +63,5 @@
     {% endif %}
 
 </div>
-
-
 
 {% endblock %}
