@@ -4,29 +4,32 @@
 {% include "includes/head.html" %}
 
 <body>
-  {% include "includes/navbar.html" %}
 
-  <nav aria-label="breadcrumb" class="home-breadcrumb breadcrumb-container">
-    <div class="container">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">
-          Home
-        </li>
-      </ol>
-    </div>
-  </nav>
+    <div class="bs-canvas-overlay bs-canvas-anim bg-dark position-fixed w-100 h-100"></div>
 
-  {% include "includes/banner.html" %}
+    {% include "includes/navbar.html" %}
 
-  <main role="main">
-    {% block content %}{% endblock %}
-  </main>
+    <nav aria-label="breadcrumb" class="home-breadcrumb breadcrumb-container">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    Home
+                </li>
+            </ol>
+        </div>
+    </nav>
 
-  {% include "includes/footer.html" %}
+    {% include "includes/banner.html" %}
 
-  {% include "includes/scripts.html" %}
+    <main role="main">
+        {% block content %}{% endblock %}
+    </main>
 
-  {% include "includes/gtag.html" %}
+    {% include "includes/footer.html" %}
+
+    {% include "includes/scripts.html" %}
+
+    {% include "includes/gtag.html" %}
 </body>
 
 </html>

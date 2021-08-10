@@ -1,8 +1,10 @@
 define(
-    ["jquery", "Forca", "ForcaView", , "popper", "bootstrap"],
-    function ($, Forca, ForcaView) {
+    ["jquery", "Forca", "ForcaView", "OffCanvas", "popper", "bootstrap"],
+    function ($, Forca, ForcaView, OffCanvas) {
+        OffCanvas.init();
 
         ForcaView.init();
+
         ForcaView.changeToGameCreatedState(null);
 
         $(".btn-new-game").click(function () {

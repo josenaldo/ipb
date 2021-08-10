@@ -25,7 +25,10 @@ from namelist.serializers import DevilNameSerializer
 
 def index(request):
 
-    context = {}
+    context = {
+        'my_data_main': 'app-main.js',
+        'page_title': 'Invoca Piroto',
+    }
 
     return render(request, 'index.html', context=context)
 
@@ -35,7 +38,6 @@ def invocacao(request):
     context = {
         'my_data_main': 'app-invocacao.js',
         'page_title': 'Invoca Piroto',
-
     }
 
     return render(request, 'invocacao.html', context=context)

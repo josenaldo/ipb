@@ -1,4 +1,9 @@
 
+/* APP */
+
+.navbar-toggler {
+  padding: .25rem;
+}
 
 /***************************************************************
  INVOCAÇÃO
@@ -309,4 +314,47 @@ h6 {
   .score h2{
     font-size: 1.8rem;
   }
+}
+
+/* Off canvas */
+
+.bs-canvas-overlay {
+  opacity: 0;
+  z-index: -1;
+}
+
+.bs-canvas-overlay.show {
+  opacity: 0.85;
+  z-index: 1100;
+}
+
+.bs-canvas {
+  top: 0;
+  width: 0;
+  z-index: 1110;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bs-canvas-left {
+  left: 0;
+}
+
+.bs-canvas-right {
+  right: 0;
+}
+
+.bs-canvas-anim {
+  transition: all .1s ease-out;
+  -webkit-transition: all .1s ease-out;
+  -moz-transition: all .1s ease-out;
+  -ms-transition: all .1s ease-out;
+}
+
+.bs-canvas-content .nav {
+  background-color: rgba(255, 255, 255, 0.1) ;
+}
+
+.bs-canvas-content .nav a {
+  font-weight: bolder;
 }

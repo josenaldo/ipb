@@ -3,14 +3,25 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
 
         <div class="container">
+
             <a class="d-flex navbar-brand d-flex align-items-center" href="/">
-                <img src="{% static 'images/brand-logo.png' %}" alt=""> <span> Invoca Piroto</span>
+                <img src="{% static 'images/brand-logo.png' %}" alt="">
+                <h4 class="d-inline-block text-light mb-0">Invoca Piroto</h4>
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerCapeta"
-                aria-controls="navbarTogglerCapeta" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Pushable content along with off-canvas opener. -->
+            <div class="bs-offset-main bs-canvas-anim">
+                <button class="navbar-toggler" type="button" data-toggle="canvas" data-target="#bs-canvas-left"
+                    aria-expanded="false" aria-controls="bs-canvas-left">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            {% comment %} <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarTogglerCapeta" aria-controls="navbarTogglerCapeta" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> {% endcomment %}
 
             <div class="collapse navbar-collapse" id="navbarTogglerCapeta">
 
@@ -24,26 +35,98 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'forca' %}">Enforca Piroto</a>
                     </li>
+
                     {% if perms.namelist.add_devilname %}
-                        <li><a class="nav-link" href="{% url 'devilname_list'%}">Admin</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'devilname_list'%}">Admin</a>
+                    </li>
                     {% endif %}
 
                     {% if user.is_authenticated %}
-                        <li>
-                            <a class="nav-link" href="{% url 'logout'%}">
-                                {{ user.get_username }} <i class="fas fa-sign-out-alt"></i>
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout'%}">
+                            {{ user.get_username }} <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </li>
                     {% else %}
-                        <li>
-                            <a class="nav-link" href="{% url 'login'%}?next={{request.path }}">
-                                Login <i class="fas fa-sign-in-alt"></i>
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login'%}?next={{request.path }}">
+                            Login <i class="fas fa-sign-in-alt"></i>
+                        </a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Off-canvas sidebar markup, left/right or both. -->
+    <div id="bs-canvas-left" class="bs-canvas bs-canvas-anim bs-canvas-left position-fixed bg-primary h-100 mw-100">
+        <header class="bs-canvas-header p-3 bg-primary">
+            <div class="row  justify-content-between">
+                <div class="col">
+                    <a class="d-flex navbar-brand d-flex align-items-center" href="/">
+                        <img src="{% static 'images/brand-logo.png' %}" alt="">
+                        <h4 class="d-inline-block text-light mb-0">Invoca Piroto</h4>
+                    </a>
+                </div>
+                <div class="col">
+                    <button type="button" class="bs-canvas-close close" aria-label="Close">
+                        <span aria-hidden="true" class="text-light"><i class="fas fa-times"></i></span>
+                    </button>
+                </div>
+            </div>
+
+
+
+        </header>
+        <div class="bs-canvas-content pt-3">
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="/">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="{% url 'invocacao' %}">
+                        <i class="fas fa-random"></i> Invoca Piroto
+                    </a>
+                </li>
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="{% url 'forca' %}">
+                        <i class="fas fa-tired"></i> Enforca Piroto
+                    </a>
+                </li>
+
+                {% if perms.namelist.add_devilname %}
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="{% url 'devilname_list'%}">
+                        <i class="fas fa-tools"></i> Admin
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="{% url 'logout'%}">
+                        <i class="fas fa-sign-out-alt"></i> Logout {{ user.get_username }}
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="{% url 'login'%}?next={{request.path }}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+    </div>
+
+    </body>
 
 </header>

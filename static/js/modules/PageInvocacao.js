@@ -1,6 +1,7 @@
 define(
-    ["jquery", "DevilNames", "popper", "bootstrap"],
-    function ( $, DevilNames ) {
+    ["jquery", "DevilNames", "OffCanvas", "popper", "bootstrap"],
+    function ( $, DevilNames, OffCanvas ) {
+        OffCanvas.init();
 
         setRandomName = function(data){
             document.getElementById("devil-name").innerHTML = data.name;
