@@ -1,43 +1,35 @@
-<head>
-    {% load static %}
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} TODO Verificar se título está sendo modificado nos templates {% endcomment %}
-    <title>{% block title %}Invoca Piroto{% endblock %}</title>
-    <meta name="description" content="{% block description %}Invoca Piroto{% endblock %}">
+{% load static %}
+<meta name="description" content="{% block description %}Invoca Piroto{% endblock %}">
 
-    <!-- Bootstrap CSS 4.6.0 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<!-- Bootstrap CSS 4.6.0 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <!-- Add additional CSS in static file -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!-- Add additional CSS in static file -->
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-    <!-- Datatable -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap4.min.css" />
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap4.min.css" />
 
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"
-        integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+<!-- Font Awesome icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"
+    integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
 
-    <!-- lazy styling -->
-    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/lazy.css' %}">
+<!-- lazy styling -->
+<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/lazy.css' %}">
 
-    <!-- Application Style -->
-    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/styles.css' %}">
+<!-- Application Style -->
+<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/styles.css' %}">
 
-    <!-- Favicons generated at http://realfavicongenerator.net/ -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'favicons/site.webmanifest' %}">
-    <link rel="mask-icon" href="{% static 'favicons/safari-pinned-tab.svg' %}" color="#611f6a">
-    <link rel="shortcut icon" href="{% static 'favicons/favicon.ico' %}">
-    <meta name="msapplication-TileColor" content="#611f6a">
-    <meta name="msapplication-config" content="{% static 'favicons/browserconfig.xml' %}">
-    <meta name="theme-color" content="#611f6a">
-
-</head>
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'favicons/site.webmanifest' %}">
+<link rel="mask-icon" href="{% static 'favicons/safari-pinned-tab.svg' %}" color="#611f6a">
+<link rel="shortcut icon" href="{% static 'favicons/favicon.ico' %}">
+<meta name="msapplication-TileColor" content="#611f6a">
+<meta name="msapplication-config" content="{% static 'favicons/browserconfig.xml' %}">
+<meta name="theme-color" content="#611f6a">

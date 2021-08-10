@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-{% include "includes/head.html" %}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} TODO Verificar se título está sendo modificado nos templates {% endcomment %}
+    <title>{% block title %}Invoca Piroto{% endblock %}</title>
+
+    {% include "includes/head.html" %}
+</head>
+
 
 <body>
 
