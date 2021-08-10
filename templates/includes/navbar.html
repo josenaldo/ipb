@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'forca' %}">Enforca Piroto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'devilname_list' %}">Elenca Piroto</a>
+                    </li>
 
                     {% if perms.namelist.add_devilname %}
                     <li class="nav-item">
@@ -97,6 +100,12 @@
                 <li class="nav-item pt-2 pb-2">
                     <a class="nav-link  text-white" href="{% url 'forca' %}">
                         <i class="fas fa-tired"></i> Enforca Piroto
+                    </a>
+                </li>
+
+                <li class="nav-item pt-2 pb-2">
+                    <a class="nav-link  text-white" href="{% url 'devilname_list' %}">
+                        <i class="fas fa-align-justify"></i> Elenca Piroto
                     </a>
                 </li>
 

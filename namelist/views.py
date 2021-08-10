@@ -30,6 +30,12 @@ def index(request):
         'page_title': 'Invoca Piroto',
     }
 
+    count_names = DevilName.objects.all().count()
+    context['count'] = count_names
+
+    devilname_list = DevilName.objects.all().order_by('-id')[:5]
+    context['devilname_list'] = devilname_list
+
     return render(request, 'index.html', context=context)
 
 

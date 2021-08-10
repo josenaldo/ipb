@@ -5,39 +5,115 @@
 {% block content %}
 
 {% load static %}
-<div class="container">
-    <div class="card-deck mb-4">
 
-        <div class="card text-center">
-            <div class="card-header">
-                <img class="card-img-top" src=" {% static 'images/home/thumb-invocacao.jpg' %}" alt="Invoque um nome do Capeta">
-            </div>
-
-            <div class="card-body">
-                <h5 class="card-title">Jogo do Invoca Piroto</h5>
-                <p class="card-text">Precisando de um impropério para enviar para seu político ou chefe favorito?</p>
-                <a href="{% url 'invocacao'%}" class="btn btn-primary">Invoca lá!</a>
-            </div>
+<div class="container bg-white mb-5">
+    <div class="row justify-content-center">
+        <div class="col-auto text-center">
+            <i class="fas fa-fw fa-book-dead fa-7x text-primary"></i>
+            <h2>O maior compêndio de nomes do capeta da internet!</h2>
+            <p class="lead">Até o momento, foram invocados {{count}} Nomes do Capeta</p>
         </div>
-
-        <div class="card text-center">
-            <img class="card-img-top" src="{% static 'images/home/thumb-forca.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Jogo do Enforca Piroto</h5>
-                <p class="card-text">Que tal passar um tempo tentando advinhar um dos nomes do Fede a 17?</p>
-                <a href="{% url 'forca'%}" class="btn btn-primary">Enforca lá!</a>
-            </div>
-        </div>
-
-        <div class="card text-center">
-            <img class="card-img-top" src="{% static 'images/home/thumb-nomes.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Lista de Nomes do Capeta</h5>
-                <p class="card-text">Porque advinhar ou invocar, quando você pode ler a lista inteira?</p>
-                <a href="{% url 'devilname_list'%}" class="btn btn-primary">Invoca lá!</a>
-            </div>
-        </div>
-
     </div>
+</div>
+
+
+<div class="row bg-primary">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center pt-5">
+                <h2 class="text-white">Jogue seu tempo fora com estilo!</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row bg-primary">
+    <div class="container p-5 ">
+        <div class="card-deck">
+            <div class="card text-center mb-3 border-primary">
+                <div class="card-header">
+                    <img class="card-img-top" src=" {% static 'images/home/thumb-invocacao.jpg' %}"
+                        alt="Invoque um nome do Capeta">
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">Jogo do Invoca Piroto</h5>
+                    <p class="card-text">Precisando de um impropério para enviar para seu político ou chefe favorito?
+                    </p>
+                    <a href="{% url 'invocacao'%}" class="btn btn-primary">Invoca lá!</a>
+                </div>
+            </div>
+
+            <div class="card text-center mb-3 border-primary">
+                <div class="card-header">
+                    <img class="card-img-top" src="{% static 'images/home/thumb-forca.jpg' %}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Jogo do Enforca Piroto</h5>
+                    <p class="card-text">Que tal passar um tempo tentando advinhar um dos nomes do Fede a 17?</p>
+                    <a href="{% url 'forca'%}" class="btn btn-primary">Enforca lá!</a>
+                </div>
+            </div>
+
+            <div class="card text-center mb-3">
+                <div class="card-header">
+                    <img class="card-img-top" src="{% static 'images/home/thumb-nomes.jpg' %}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Elenco de Nomes do Capeta</h5>
+                    <p class="card-text">Porque advinhar ou invocar, quando você pode ler a lista inteira?</p>
+                    <a href="{% url 'devilname_list'%}" class="btn btn-primary">Elenca lá!</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container bg-light pt-5">
+    <div class="row justify-content-center">
+        <div class="col-auto text-center">
+
+            <h2>Os últimos Nomes Invocados</h2>
+            <p class="lead">Acompanhe os últimos nomes do Capeta encontrados!</p>
+        </div>
+    </div>
+    {% if devilname_list %}
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            {% for devilname in devilname_list %}
+
+            <div class="component mb-3 ">
+                <div class="card">
+                    <div class="card-body text-center pb-1 pt-1">
+                        <span class="badge badge-success">{{devilname.id}}</span>
+                        <h4 class="card-title mb-1">{{devilname.name}}</h4>
+                        <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y H:i:s"}}</span>
+                    </div>
+                    <div class="card-footer text-center pt-0">
+                        <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
+                            <i class="fas fa-fw fa-folder-open"></i>
+                        </a>
+                        {% if perms.namelist.add_devilname %}
+                        <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-fw fa-edit"></i>
+                        </a>
+                        <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-fw fa-minus-square"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% else %}
+    <div class="row justify-content-center">
+        <div class="col-md-auto text-center">
+            <p>Nenhum nome foi invocado.</p>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
