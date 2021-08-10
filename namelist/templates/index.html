@@ -69,51 +69,53 @@
     </div>
 </div>
 
-<div class="container bg-light pt-5">
-    <div class="row justify-content-center">
-        <div class="col-auto text-center">
-
-            <h2>Os últimos Nomes Invocados</h2>
-            <p class="lead">Acompanhe os últimos nomes do Capeta encontrados!</p>
+<div class="row bg-light">
+    <div class="container bg-light pt-5">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center">
+    
+                <h2>Os últimos Nomes Invocados</h2>
+                <p class="lead">Acompanhe os últimos nomes do Capeta encontrados!</p>
+            </div>
         </div>
-    </div>
-    {% if devilname_list %}
-    <div class="row justify-content-center mb-3">
-        <div class="col-sm-12 col-md-10 col-lg-8">
-            {% for devilname in devilname_list %}
-
-            <div class="component mb-3 ">
-                <div class="card">
-                    <div class="card-body text-center pb-1 pt-1">
-                        <span class="badge badge-success">{{devilname.id}}</span>
-                        <h4 class="card-title mb-1">{{devilname.name}}</h4>
-                        <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y H:i:s"}}</span>
-                    </div>
-                    <div class="card-footer text-center pt-0">
-                        <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
-                            <i class="fas fa-fw fa-folder-open"></i>
-                        </a>
-                        {% if perms.namelist.add_devilname %}
-                        <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
-                            <i class="fas fa-fw fa-edit"></i>
-                        </a>
-                        <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
-                            <i class="fas fa-fw fa-minus-square"></i>
-                        </a>
-                        {% endif %}
+        {% if devilname_list %}
+        <div class="row justify-content-center mb-3">
+            <div class="col-sm-12 col-md-10 col-lg-8">
+                {% for devilname in devilname_list %}
+    
+                <div class="component mb-3 ">
+                    <div class="card">
+                        <div class="card-body text-center pb-1 pt-1">
+                            <span class="badge badge-success">{{devilname.id}}</span>
+                            <h4 class="card-title mb-1">{{devilname.name}}</h4>
+                            <span class="small">Invocado em {{devilname.creation_date | date:"d/m/Y H:i:s"}}</span>
+                        </div>
+                        <div class="card-footer text-center pt-0">
+                            <a href="{% url 'devilname_detail' devilname.id %}" class="btn btn-sm btn-info">
+                                <i class="fas fa-fw fa-folder-open"></i>
+                            </a>
+                            {% if perms.namelist.add_devilname %}
+                            <a href="{% url 'devilname_update' devilname.id %}" class="btn btn-sm btn-secondary">
+                                <i class="fas fa-fw fa-edit"></i>
+                            </a>
+                            <a href="{% url 'devilname_delete' devilname.id %}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-fw fa-minus-square"></i>
+                            </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
-
-    {% else %}
-    <div class="row justify-content-center">
-        <div class="col-md-auto text-center">
-            <p>Nenhum nome foi invocado.</p>
+    
+        {% else %}
+        <div class="row justify-content-center">
+            <div class="col-md-auto text-center">
+                <p>Nenhum nome foi invocado.</p>
+            </div>
         </div>
+        {% endif %}
     </div>
-    {% endif %}
 </div>
 {% endblock %}
