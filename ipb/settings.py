@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #PLUGINS
     'rest_framework',
+    'fullurl',
     #CUSTOM APPS
     'namelist.apps.NamelistConfig',
 ]

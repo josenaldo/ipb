@@ -1,0 +1,53 @@
+{% load static %}
+
+{% load fullurl %}
+
+<meta property="og:title" content="Invoca Piroto">
+<meta name="author" content="vudureverso">
+<meta property="og:locale" content="pt_BR">
+<meta name="description"
+    content="O Invoca Piroto é o invocador de nomes do capeta pra quem cansou de se referir ao presidente como Satanás!">
+<meta property="og:description"
+    content="O Invoca Piroto é o invocador de nomes do capeta pra quem cansou de se referir ao presidente como Satanás!">
+<link rel="canonical" href="{% fullurl 'index' %}">
+<meta property="og:url" content="{% fullurl 'index' %}">
+<meta property="og:site_name" content="Invoca Piroto">
+<meta property="og:image" content="{% fullstatic  'images/og-image.jpg' %}">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="{% fullstatic  'images/og-image.jpg' %}">
+<meta property="twitter:title" content="Invoca Piroto">
+<meta name="twitter:site" content="@vudureverso">
+<meta name="twitter:creator" content="@vudureverso">
+<script type="application/ld+json">
+    {
+        "@type": "WebSite",
+        "url": "{% fullurl 'index' %}",
+        "headline": "Invoca Piroto",
+        "sameAs": ["https://twitter.com/vudureverso", "https://www.facebook.com/josenaldo.matos",
+            "https://www.linkedin.com/in/josenaldo/", "https://github.com/josenaldo"
+        ],
+        "name": "Vudu Reverso",
+        "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{% fullstatic 'images/logo.jpg' %}"
+            },
+            "name": "vudureverso"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "vudureverso"
+        },
+        "image": {
+            "width": "1200",
+            "height": "630",
+            "url": "{% fullstatic 'images/og-image.jpg' %}",
+            "@type": "imageObject"
+        },
+        "description": "O Invoca Piroto é o invocador de nomes do capeta pra quem cansou de se referir ao presidente como Satanás!",
+        "@context": "https://schema.org"
+    }
+</script>
