@@ -41,14 +41,14 @@
 
                     {% if perms.namelist.add_devilname %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'devilname_list'%}">Admin</a>
+                        <a class="nav-link" href="{% url 'devilname_create'%}">Adicionar</a>
                     </li>
                     {% endif %}
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout'%}">
-                            {{ user.get_username }} <i class="fas fa-sign-out-alt"></i>
+                            Sair {{ user.get_username }} <i class="fas fa-sign-out-alt"></i>
                         </a>
                     </li>
                     {% else %}
@@ -111,8 +111,8 @@
 
                 {% if perms.namelist.add_devilname %}
                 <li class="nav-item pt-2 pb-2">
-                    <a class="nav-link  text-white" href="{% url 'devilname_list'%}">
-                        <i class="fas fa-tools"></i> Admin
+                    <a class="nav-link  text-white" href="{% url 'devilname_create'%}">
+                        <i class="fas fa-plus"></i> Adicionar
                     </a>
                 </li>
                 {% endif %}
@@ -120,7 +120,7 @@
                 {% if user.is_authenticated %}
                 <li class="nav-item pt-2 pb-2">
                     <a class="nav-link  text-white" href="{% url 'logout'%}">
-                        <i class="fas fa-sign-out-alt"></i> Logout {{ user.get_username }}
+                        <i class="fas fa-sign-out-alt"></i> Sair {{ user.get_username }}
                     </a>
                 </li>
                 {% else %}
