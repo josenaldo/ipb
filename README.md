@@ -16,9 +16,9 @@ Projeto em desenvolvimento. Provavelmente, estará assim pelo resto da vida dele
 
 - [x] Gestão da lista de Nomes do Capeta
 - [x] Invocação de nome do capeta
-- [ ] Jogo da forca de nome do capeta
-- [ ] Lista de últimos nomes adicionados
-- [ ] Cada nome adicionado é postado no Twitter
+- [x] Jogo da forca de nome do capeta
+- [x] Lista de últimos nomes adicionados
+- [x] Cada nome adicionado é postado no Twitter
 - [ ] Votação de nomes do capeta
 - [ ] Lista dos nomes mais populares
 
@@ -144,6 +144,22 @@ Cada vez que for testar o projeto:
     heroku local web
     ```
 
+#### Fazendo deploy pela primeira vez
+
+Ao fazer deploy pela primeira vez, as sequintes variáveis de ambiente devem ser configuradas:
+
+- DJANGO_SECRET_KEY
+- TWITTER_ACCESS_TOKEN
+- TWITTER_ACCESS_TOKEN_SECRET
+- TWITTER_API_KEY
+- TWITTER_API_SECRET_KEY
+
+Também executar o comando de migração do Django:
+
+```shell
+heroku run python manage.py migrate --app invoca-piroto-backend
+```
+
 ### Comandos úteis
 
 #### Heroku
@@ -248,11 +264,14 @@ Neste projeto, utilizei as seguintes tecnologias:
 - [DJango 3.1.7](https://www.djangoproject.com/)
 - [Django Rest Framework 3.12.4](https://www.django-rest-framework.org/)
 - [Django-heroku 0.3.1](https://github.com/heroku/django-heroku)
-- [PostgreSQL 13.3](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 - [psycopg2-binary 2.9.1](https://pypi.org/project/psycopg2-binary/)
-- [dj-database-url 0.5.0](https://github.com/jacobian/dj-database-url)
+- [PostgreSQL 13.3](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 - [django-fullurl 1.1](https://pypi.org/project/django-fullurl)
+- [dj-database-url 0.5.0](https://github.com/jacobian/dj-database-url)
 - [Bootstrap 4.6.0](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Lazy kit](https://bootstrapbay.github.io/lazy-kit/)
+- [FontAwesome v5.15](https://fontawesome.com/)
+- [Heroku](https://www.heroku.com/home)
 
 ## Links funcionais
 

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # TODO: Colocar a secret em outro formato, mais seguro.
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'eiq_ia&*t81^@lqn3pg+9%@9+a7++f&o=^u$g0o9vpc*$&@ytd'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'eiq_ia&*t81^@lqn3pg+9%@9+a7++f&o=^u$g0o9vpc*$&@ytd')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # TODO: Configurar o DEBUG dinamicamente, em produção
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     #PLUGINS
     'rest_framework',
     'fullurl',
@@ -149,7 +150,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+# Sites framework (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
