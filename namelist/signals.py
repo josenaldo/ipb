@@ -33,7 +33,7 @@ def tweet_devilname(sender, instance, **kwargs):
     name = info = (instance.name[:char_count] + '...') if len(instance.name) > char_count else instance.name
 
     # 21 caracteres
-    tweet = f'Novo Nome do Capeta: \'{name}\'. {full_url}'
+    tweet = f'Novo Nome do Capeta: \'{name}\'.\n\n{full_url}'
 
     try:
         api.update_status(tweet)
