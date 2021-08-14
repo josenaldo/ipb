@@ -160,6 +160,12 @@ Também executar o comando de migração do Django:
 heroku run python manage.py migrate --app invoca-piroto-backend
 ```
 
+Entrar no site servidor/admin e configurar o registro 1, do modelo Sites.
+
+Mudar o nome de domínio e o Nome de exibição para o host do site.
+
+Ex: invoca-piroto-backend.herokuapp.com
+
 ### Comandos úteis
 
 #### Heroku
@@ -268,6 +274,7 @@ Neste projeto, utilizei as seguintes tecnologias:
 - [PostgreSQL 13.3](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 - [django-fullurl 1.1](https://pypi.org/project/django-fullurl)
 - [dj-database-url 0.5.0](https://github.com/jacobian/dj-database-url)
+- [Tweepy 3.10.0](https://github.com/tweepy/tweepy)
 - [Bootstrap 4.6.0](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 - [Lazy kit](https://bootstrapbay.github.io/lazy-kit/)
 - [FontAwesome v5.15](https://fontawesome.com/)
