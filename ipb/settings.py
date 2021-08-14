@@ -176,5 +176,44 @@ LOGIN_URL = '/autenticacao/login/'
 # possa copiar o link de redefinição de senha do console).
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Logging
+# https://docs.djangoproject.com/en/3.2/topics/logging/
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+
+LOGGING_LEVEL = os.environ.get('LOGGING_LEVEL', 'WARNING')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] [{levelname}] [{module}] {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '[{asctime}] [{levelname}] {message}',
+            'style': '{',
+        },
+    },
+     'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': LOGGING_LEVEL,
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+       'namelist': {
+            'handlers': ['console'],
+            'level': LOGGING_LEVEL,
+            'propagate': True,
+        },
+    },
+}
+
+django_heroku.settings(locals(), logging=False)
