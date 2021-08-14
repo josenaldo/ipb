@@ -149,6 +149,8 @@ Cada vez que for testar o projeto:
 Ao fazer deploy pela primeira vez, as sequintes variáveis de ambiente devem ser configuradas:
 
 - DJANGO_SECRET_KEY
+- LOGGING_LEVEL
+- TWITTER_ON
 - TWITTER_ACCESS_TOKEN
 - TWITTER_ACCESS_TOKEN_SECRET
 - TWITTER_API_KEY
