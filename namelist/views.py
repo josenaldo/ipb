@@ -48,6 +48,7 @@ def invocacao(request):
 
     return render(request, 'invocacao.html', context=context)
 
+
 def forca(request):
 
     context = {
@@ -57,13 +58,7 @@ def forca(request):
 
     return render(request, 'forca.html', context=context)
 
-# def nomes(request):
-#     context = {
-
-#     }
-
-#     return render(request, 'namelist/invocacao.html', context=context)
-
+from django.forms.models import modelform_factory
 
 @permission_required('namelist.add_devilname')
 def devilname_import(request):
@@ -87,7 +82,7 @@ def devilname_import(request):
 
             io_string = io.StringIO(data_set)
 
-            fail_names=[]
+            fail_names = []
 
             next(io_string)
             for column in csv.reader(io_string, delimiter=',', quotechar="\""):
@@ -102,11 +97,11 @@ def devilname_import(request):
                 except IntegrityError as saveException:
                     fail_names.append(column[0])
 
-
             messages.success(request, 'Arquivo importado com sucesso')
 
             if(len(fail_names) > 0):
-                messages.warning(request, f'Nomes não importados: {len(fail_names)}')
+                messages.warning(
+                    request, f'Nomes não importados: {len(fail_names)}')
                 context['fail_names'] = fail_names
     else:
         form = ImportDevilNameForm()
@@ -115,31 +110,31 @@ def devilname_import(request):
 
     return render(request, 'namelist/devilname_import.html', context=context)
 
+
 class DevilNameCreate(PermissionRequiredMixin, CreateView):
+
     permission_required = 'namelist.add_devilname'
     model = DevilName
-    fields = ['name']
+    form_class = modelform_factory(DevilName, fields=(('name',)), error_messages={'name':{'required': 'Vai invocar um capiroto sem nome, mizera?'}})
 
     def get_context_data(self, **kwargs):
 
         context = super(DevilNameCreate, self).get_context_data(**kwargs)
-
         context['page_title'] = 'Registrar Nome do Capeta'
-
         return context
+
 
 class DevilNameUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'namelist.change_devilname'
     model = DevilName
-    fields = ['name']
+    form_class = modelform_factory(DevilName, fields=(('name',)), error_messages={'name':{'required': 'Vai invocar um capiroto sem nome, mizera?'}})
 
     def get_context_data(self, **kwargs):
 
         context = super(DevilNameUpdate, self).get_context_data(**kwargs)
-
         context['page_title'] = 'Atualizar Nome do Capeta'
-
         return context
+
 
 class DevilNameDelete(PermissionRequiredMixin, DeleteView):
     permission_required = 'namelist.delete_devilname'
@@ -149,29 +144,17 @@ class DevilNameDelete(PermissionRequiredMixin, DeleteView):
     def get_context_data(self, **kwargs):
 
         context = super(DevilNameDelete, self).get_context_data(**kwargs)
-
         context['page_title'] = 'Deletar Nome do Capeta'
-
         return context
+
 
 class DevilNameList(ListView):
     model = DevilName
-
-    # your own name for the list as a template variable
     context_object_name = 'devilname_list'
-
-    # Get 5 books containing the title war
-    # queryset = DevilName.objects.order_by('id')
     ordering = 'id'
-
-    # especifica o número máximo de itens que deve aparecer na lista
     paginate_by = 10
-
-    # especifica a classe do formukario de busca
     form_class = DevilNameSearchForm
 
-    # Override get_context_data() in order to pass additional
-    # context variables to the template
     def get_context_data(self, **kwargs):
 
         context = super(DevilNameList, self).get_context_data(**kwargs)
@@ -208,6 +191,7 @@ class DevilNameList(ListView):
 
         return ordering
 
+
 class DevilNameDetail(DetailView):
     model = DevilName
 
@@ -217,11 +201,8 @@ class DevilNameDetail(DetailView):
     def get_context_data(self, **kwargs):
 
         context = super(DevilNameDetail, self).get_context_data(**kwargs)
-
         context['page_title'] = 'Detalhes do Nome do Capeta'
-
         return context
-
 
 
 @api_view(['GET'])
@@ -233,41 +214,10 @@ def random_name(request):
     serializer = DevilNameSerializer(devilname)
     return Response(serializer.data)
 
+
 @permission_classes((permissions.AllowAny,))
 class DevilNameViewSet(viewsets.ModelViewSet):
     """ Implementa API de nomes do capeta """
 
     queryset = DevilName.objects.all()
     serializer_class = DevilNameSerializer
-
-
-# @permission_required('namelist.add_devilname', raise_exception=True)
-# def devilname_add(request):
-
-#     context = {}
-
-#     if(request.method == 'POST'):
-#         form = NewDevilNameForm(request.POST)
-
-#         if form.is_valid():
-
-#             existent_devilname = DevilName.objects.filter(name=form.cleaned_data['name'])
-
-#             if(existent_devilname):
-#                 message = "Nome do capeta já existe."
-#             else:
-#                 devilname_instance = DevilName()
-#                 devilname_instance.name = form.cleaned_data['name']
-#                 devilname_instance.save()
-
-#                 message = "Nome do capeta adicionado: " + devilname_instance.name
-#                 form = NewDevilNameForm()
-
-#             context['message'] = message
-
-#     else:
-#         form = NewDevilNameForm()
-
-#     context['form'] = form
-
-#     return render(request, 'devilname_add.html', context)

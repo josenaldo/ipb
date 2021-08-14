@@ -29,6 +29,9 @@ class DevilName(models.Model):
         help_text="Nome do capeta",
         max_length=255,
         unique=True,
+        error_messages={
+            'unique':'Esse Capiroto já foi invocado. Chama outro.',
+        }
     )
 
     creation_date = DateTimeField(
@@ -44,9 +47,9 @@ class DevilName(models.Model):
 
     # Methods
     def get_absolute_url(self):
-        """Returns the url to access a particular instance of MyModelName."""
+        # """Returns the url to access a particular instance of DevilName."""
         return reverse('devilname_detail', args=[str(self.id)])
 
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
+        """String for representing the DevilName object (in Admin site etc.)."""
         return self.name
