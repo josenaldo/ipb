@@ -26,244 +26,6 @@ Projeto em desenvolvimento. Provavelmente, estará assim pelo resto da vida dele
 
 [https://invoca-piroto-backend.herokuapp.com/](https://invoca-piroto-backend.herokuapp.com/)
 
-## Colaborando
-
-### Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-
-- [Git](https://git-scm.com).
-- [Python 3.9.2](https://www.python.org/downloads/).
-- [PostgreSQL 13.3](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
-- [VSCode](https://code.visualstudio.com/) ou outro editor de código.
-- [Anaconda](https://www.anaconda.com/) ou outro gerenciador de ambientes.
-
-Não são obrigatórios, mas podem ajudar:
-
-- [Sourcetree](https://www.sourcetreeapp.com/) ou outra GUI para o Git.
-
-### Montando ambiente de desenvolvimento
-
-Ao executar o projeto a primeira vez:
-
-1. Clonar projeto no github
-
-2. Instalar Python 3.9.2
-
-3. Instalar Anaconda
-
-   - Após instalar o Anaconda, executar , no terminal, o comando
-
-  ```shell
-  conda init
-  ```
-
-4. Criar e ativar ambiente virtual
-
-   - É muito importante que o ambiente virtual seja salvo em uma pasta com um nome DIFERENTE de `.env`. Uma sugestção é `.venv`.
-
-    ```shell
-    conda create  -p .venv python=3.9.2
-    conda activate ./.venv
-    ```
-
-5. Instalar os pré-requisitos do projeto
-
-    ```shell
-    pip install -r requirements.txt
-    ```
-
-6. Configurar o acesso ao banco de dados
-
-   - No arquivo `settings.py`, configurar a variável DATABASES['default']
-
-    ```python
-    DATABASES['default'] = dj_database_url.config(default='postgres://USER:PASS@HOST/DATABASE_NAME')
-    ```
-
-7. Executar os migrations
-
-   ```shell
-   python manage.py migrate
-   ```
-
-8. Criar super usuário
-
-   - Por padrão, sempre uso usuário `admin` e senha `123mudar`
-   - Pode ser usado qualquer email
-
-   ``` shell
-   python manage.py createsuperuser
-   ```
-
-9. Executar o projeto pela primeira vez, conforme descrito no item 'Executar o projeto localmente'
-
-10. Configurar usuários padrão
-
-    - Entrar no [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
-    - Logar com super usuário
-    - Adicionar grupo sumonadores
-    - Dar, ao grupo sumonadores, as seguintes permissões
-      - "namelist | Nome | Can add Nome do Capeta"
-      - "namelist | Nome | Can change Nome do Capeta"
-      - "namelist | Nome | Can delete Nome do Capeta"
-      - "namelist | Nome | Can view Nome do Capeta"
-    - Adicionar usuário `sumonador`
-      - senha `123mudar@` ou outra qualquer
-      - email qualquer (mas diferente do super usuário admin)
-      - adicionar grupo sumonadores
-      - NÃO marcar como super usuário
-    - Se quiser, adicione outro usuário, mas sem grupo
-
-### Alterando projeto
-
-Cada vez que for testar o projeto:
-
-1. Ativar o ambiente virtual do conda, no terminal da IDE a ser usado.
-
-    ```shell
-    conda activate ./.venv
-    ```
-
-2. Executar o projeto localmente
-    - Com o Django:
-
-    ```shell
-    python manage.py runserver
-    ```
-
-    - Com o Heroku, no Windows:
-
-    ```shell
-    heroku local web -f Procfile.windows
-    ```
-
-    - Com o Heroku, no Linux:
-
-    ```shell
-    heroku local web
-    ```
-
-#### Fazendo deploy pela primeira vez
-
-Ao fazer deploy pela primeira vez, as sequintes variáveis de ambiente devem ser configuradas:
-
-- DJANGO_SECRET_KEY
-- LOGGING_LEVEL
-- TWITTER_ON
-- TWITTER_ACCESS_TOKEN
-- TWITTER_ACCESS_TOKEN_SECRET
-- TWITTER_API_KEY
-- TWITTER_API_SECRET_KEY
-
-Também executar o comando de migração do Django:
-
-```shell
-heroku run python manage.py migrate --app invoca-piroto-backend
-```
-
-Entrar no site servidor/admin e configurar o registro 1, do modelo Sites.
-
-Mudar o nome de domínio e o Nome de exibição para o host do site.
-
-Ex: invoca-piroto-backend.herokuapp.com
-
-### Comandos úteis
-
-#### Heroku
-
-- Abre, no navegador, a aplicação rodando no heroku
-
-  ```shell
-  heroku open --app invoca-piroto-backend
-  ```
-
-- Reinicia aplicação no Heroku
-
-  ```shell
-  heroku restart --app invoca-piroto-backend
-  ```
-
-- Mostra os logs da aplicação
-
-  ```shell
-  heroku logs --tail --app invoca-piroto-backend
-  ```
-
-- Roda o bash no Heroku
-
-  ```shell
-  heroku run bash --app invoca-piroto-backend
-  ```
-
-- Configurar variáveis de configuração no heroku
-
-  ```shell
-  heroku config:set --app invoca-piroto-backend NOME=VALOR
-  ```
-
-- Ver as configurações do Heroku
-
-  ```shell
-  heroku config --app invoca-piroto-backend
-  ```
-
-- Copia toas as configurações de produção e as coloca no arquivo .env
-
-  ```shell
-  heroku config:get CONFIG-VAR-NAME --app invoca-piroto-backend -s  >> .env
-  ```
-
-- Ver a lista de addons usados no Heroku
-
-  ```shell
-  heroku addons --app invoca-piroto-backend
-  ```
-
-- Ver dados sobre o banco de dados usado pelo app, no Heroku
-
-  ```shell
-  heroku pg --app invoca-piroto-backend
-  ```
-
-- Reseta o banco de dados no heroku
-
-  ```shell
-  heroku pg:reset DATABASE --app invoca-piroto-backend
-  ```
-
-- Roda o migrate do Django no Heroku
-
-  ```shell
-  heroku run python manage.py migrate --app invoca-piroto-backend
-  ```
-
-- Configurar super usuário no Heroku
-
-  ```shell
-  heroku run python manage.py createsuperuser --app invoca-piroto-backend
-  ```
-
-- Abre o shell do Postgres, no Heroku
-
-  ```shell
-  heroku pg:psql --app invoca-piroto-backend
-  ```
-
-#### Django
-
-- Depurar a pesquisa por arquivos estáticos, para ver em quais diretórios o Django está buscando esses arquivos
-
-    ```shell
-    python manage.py findstatic --verbosity 2 assets/js/modules/PageNomes.js
-    ```
-
-- Ver, no terminal, as configurações do Django
-
-    ```shell
-    python manage.py diffsettings --all
-    ```
-
 ## Tecnologias utilizadas
 
 Neste projeto, utilizei as seguintes tecnologias:
@@ -291,16 +53,28 @@ Acessando as funcionalidades do aplicativo
 - Qualquer usuário
   - [Home](http://127.0.0.1:8000/)
   - [Django Admin Site](http://127.0.0.1:8000/admin)
-  - [Incocação do Nome do Capeta](http://127.0.0.1:8000/invocacao)
+  - [Invoca Piroto](http://127.0.0.1:8000/invocacao)
+  - [Enforca Piroto](http://127.0.0.1:8000/forca)
+  - [Elenca Piroto](http://127.0.0.1:8000/nomes/)
 - Autenticados
-  - [Lista de Nomes do Capeta](http://127.0.0.1:8000/nomes/)
   - [Detalhes do Nome do Capeta 1](http://127.0.0.1:8000/nomes/1)
   - [Editar Nome do Capeta 1](http://127.0.0.1:8000/nomes/1/editar/)
   - [Remover Nome do Capeta 1](http://127.0.0.1:8000/nomes/1/remover/)
+  - [Adicionar Nome do Capeta](http://127.0.0.1:8000/nomes/adicionar/)
 
 ### Em produção
 
--
+- Qualquer usuário
+  - [Home](https://invoca-piroto-backend.herokuapp.com/)
+  - [Django Admin Site](https://invoca-piroto-backend.herokuapp.com/admin)
+  - [Invoca Piroto](https://invoca-piroto-backend.herokuapp.com/invocacao)
+  - [Enforca Piroto](https://invoca-piroto-backend.herokuapp.com/forca)
+  - [Elenca Piroto](https://invoca-piroto-backend.herokuapp.com/nomes/)
+- Autenticados
+  - [Detalhes do Nome do Capeta 1](https://invoca-piroto-backend.herokuapp.com/nomes/1)
+  - [Editar Nome do Capeta 1](https://invoca-piroto-backend.herokuapp.com/nomes/1/editar/)
+  - [Remover Nome do Capeta 1](https://invoca-piroto-backend.herokuapp.com/nomes/1/remover/)
+  - [Adicionar Nome do Capeta](https://invoca-piroto-backend.herokuapp.com/nomes/adicionar/)
 
 ## Autor
 
